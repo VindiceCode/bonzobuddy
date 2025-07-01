@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+.venv/
+
+# User-specific Data Files
+# These should not be committed so each developer can have their own test data.
+org_webhooks.json
+generated_prospects.json
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor specific
+.vscode/
+.idea/
+*.swp

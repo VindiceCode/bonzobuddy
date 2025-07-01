@@ -1,0 +1,42 @@
+{
+  "Lead": {
+    "type": "object",
+    "properties": {
+      "lead_info": {
+        "type": "object",
+        "properties": {
+          "lead_consumer_info": {
+            "type": "object",
+            "properties": {
+              "first_name": {
+                "type": "string",
+                "dynamic": "firstName"
+              },
+              "last_name": {
+                "type": "string",
+                "dynamic": "lastName"
+              },
+              "email": {
+                "type": "string",
+                "dynamic": "email"
+              },
+              "phone": {
+                "type": "string",
+                "dynamic": "phone"
+              }
+            }
+          }
+        }
+      },
+      "lead_property_info": {
+        "type": "object",
+        "properties": {
+          "property_price": {
+            "type": "integer",
+            "static": 600000
+          }
+        }
+      }
+    }
+  }
+}

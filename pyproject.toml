@@ -1,0 +1,17 @@
+[project]
+# This file is managed by 'uv'.
+# For more information, see: https://docs.astral.sh/uv/
+name = "bonzo-buddy"
+version = "1.0.0"
+description = "A GUI tool for testing Bonzo webhook integrations."
+requires-python = ">=3.10"
+dependencies = [
+    "customtkinter==5.2.2",
+    "requests==2.32.4",
+    "packaging==25.0",
+    "darkdetect==0.8.0",
+    "urllib3==2.5.0",
+    "charset-normalizer==3.4.2",
+    "idna==3.10",
+    "certifi==2025.6.15",
+]

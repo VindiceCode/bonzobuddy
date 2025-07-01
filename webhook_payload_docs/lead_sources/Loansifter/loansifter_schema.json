@@ -1,0 +1,54 @@
+{
+  "format": "xml",
+  "rootElement": "Result",
+  "Request": {
+    "type": "object",
+    "properties": {
+      "LeadInformation": {
+        "type": "object",
+        "properties": {
+          "ConsumerContactInformation": {
+            "type": "object",
+            "properties": {
+              "FirstName": {
+                "type": "string",
+                "dynamic": "firstName"
+              },
+              "LastName": {
+                "type": "string",
+                "dynamic": "lastName"
+              },
+              "EmailAddress": {
+                "type": "object",
+                "properties": {
+                  "val": {
+                    "type": "string",
+                    "dynamic": "email"
+                  }
+                }
+              },
+              "ContactPhone": {
+                "type": "object",
+                "properties": {
+                  "val": {
+                    "type": "string",
+                    "dynamic": "phone"
+                  }
+                }
+              }
+            }
+          },
+          "LoanInformation": {
+            "type": "object",
+            "properties": {
+              "LoanAmount": {
+                "type": "integer",
+                "static": 280000
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

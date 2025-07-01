@@ -1,0 +1,51 @@
+{
+  "first_name": {
+    "type": "string",
+    "dynamic": "firstName"
+  },
+  "last_name": {
+    "type": "string",
+    "dynamic": "lastName"
+  },
+  "contacts": {
+    "type": "object",
+    "properties": {
+      "work_email": {
+        "type": "string",
+        "dynamic": "email"
+      },
+      "mobile_phone": {
+        "type": "string",
+        "dynamic": "phone"
+      }
+    }
+  },
+  "state": {
+    "type": "string",
+    "static": "CA"
+  },
+  "street": {
+    "type": "string",
+    "static": "123 Main St"
+  },
+  "city": {
+    "type": "string",
+    "static": "Anytown"
+  },
+  "zip": {
+    "type": "string",
+    "static": "12345"
+  },
+  "company_name": {
+    "type": "string",
+    "static": "Modex"
+  },
+  "lead_id": {
+    "type": "string",
+    "static": "12345"
+  },
+  "notes": {
+    "type": "string",
+    "static": "This is a test lead from Modex."
+  }
+}

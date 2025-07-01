@@ -1,0 +1,56 @@
+{
+  "is-contact": {
+    "type": "boolean",
+    "static": true
+  },
+  "properties": {
+    "type": "object",
+    "properties": {
+      "hs_object_id": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "static": "12345"
+          }
+        }
+      },
+      "firstname": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "dynamic": "firstName"
+          }
+        }
+      },
+      "lastname": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "dynamic": "lastName"
+          }
+        }
+      },
+      "email": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "dynamic": "email"
+          }
+        }
+      },
+      "phone": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "dynamic": "phone"
+          }
+        }
+      }
+    }
+  }
+}

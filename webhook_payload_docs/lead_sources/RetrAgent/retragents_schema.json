@@ -1,0 +1,34 @@
+{
+  "FirstName": {
+    "type": "string",
+    "dynamic": "firstName"
+  },
+  "LastName": {
+    "type": "string",
+    "dynamic": "lastName"
+  },
+  "Email": {
+    "type": "string",
+    "dynamic": "email"
+  },
+  "Phone": {
+    "type": "string",
+    "dynamic": "phone"
+  },
+  "NickName": {
+    "type": "string",
+    "dynamic": "firstName"
+  },
+  "Tags": {
+    "type": "string",
+    "static": "Agent,RETR"
+  },
+  "RetrProfileURL": {
+    "type": "string",
+    "static": "https://example.com/retr-profile"
+  },
+  "BuyerCt_12Mo": {
+    "type": "integer",
+    "static": 10
+  }
+}

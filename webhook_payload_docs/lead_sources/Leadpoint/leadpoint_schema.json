@@ -1,0 +1,106 @@
+{
+  "FNAME": {
+    "type": "string",
+    "dynamic": "firstName"
+  },
+  "LNAME": {
+    "type": "string",
+    "dynamic": "lastName"
+  },
+  "EMAIL": {
+    "type": "string",
+    "dynamic": "email"
+  },
+  "PRI_PHON": {
+    "type": "string",
+    "dynamic": "phone"
+  },
+  "ADDRESS": {
+    "type": "string",
+    "static": "123 Main St"
+  },
+  "CITY": {
+    "type": "string",
+    "static": "Anytown"
+  },
+  "STATE": {
+    "type": "string",
+    "static": "CA"
+  },
+  "ZIP": {
+    "type": "string",
+    "static": "12345"
+  },
+  "PROP_ST": {
+    "type": "string",
+    "static": "CA"
+  },
+  "PROP_PURP": {
+    "type": "string",
+    "static": "Primary"
+  },
+  "PROP_ZIP": {
+    "type": "string",
+    "static": "12345"
+  },
+  "EST_VAL": {
+    "type": "integer",
+    "static": 400000
+  },
+  "DOWN_PMT": {
+    "type": "integer",
+    "static": 50000
+  },
+  "LOAN_PURP": {
+    "type": "string",
+    "static": "Purchase"
+  },
+  "LOAN_VAL": {
+    "type": "integer",
+    "static": 350000
+  },
+  "LOAN_TYPE": {
+    "type": "string",
+    "static": "Conventional"
+  },
+  "PURCHASE_PRICE": {
+    "type": "integer",
+    "static": 400000
+  },
+  "INCOME": {
+    "type": "integer",
+    "static": 100000
+  },
+  "SPEC_HOME": {
+    "type": "string",
+    "static": "yes"
+  },
+  "CRED_GRADE": {
+    "type": "string",
+    "static": "Excellent"
+  },
+  "FHA_BANK_FORECLOSUREl": {
+    "type": "string",
+    "static": "no"
+  },
+  "FHA_BANK_FORECLOSURE": {
+    "type": "string",
+    "static": "no"
+  },
+  "BKCY": {
+    "type": "string",
+    "static": "no"
+  },
+  "AGENT_NAME": {
+    "type": "string",
+    "static": "Bob Realtor"
+  },
+  "AGENT_EMAIL": {
+    "type": "string",
+    "static": "bob.realtor@example.com"
+  },
+  "AGENT_PHONE": {
+    "type": "string",
+    "static": "555-555-1234"
+  }
+}

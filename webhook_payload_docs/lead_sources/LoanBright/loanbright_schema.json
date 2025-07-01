@@ -1,0 +1,70 @@
+{
+  "brrwr_fname": {
+    "type": "string",
+    "dynamic": "firstName"
+  },
+  "brrwr_lname": {
+    "type": "string",
+    "dynamic": "lastName"
+  },
+  "brrwr_email": {
+    "type": "string",
+    "dynamic": "email"
+  },
+  "brrwr_home_phone": {
+    "type": "string",
+    "dynamic": "phone"
+  },
+  "zip": {
+    "type": "string",
+    "static": "12345"
+  },
+  "address": {
+    "type": "string",
+    "static": "123 Main St"
+  },
+  "state": {
+    "type": "string",
+    "static": "CA"
+  },
+  "city": {
+    "type": "string",
+    "static": "Anytown"
+  },
+  "prop_purpose": {
+    "type": "string",
+    "static": "Purchase"
+  },
+  "prop_type": {
+    "type": "string",
+    "static": "SingleFamily"
+  },
+  "prop_value": {
+    "type": "integer",
+    "static": 400000
+  },
+  "mtg_desired_rate": {
+    "type": "number",
+    "static": 3.5
+  },
+  "brrwr_bankruptcy": {
+    "type": "string",
+    "static": "No"
+  },
+  "brrwr_credit_rating": {
+    "type": "string",
+    "static": "Good"
+  },
+  "loan_amount": {
+    "type": "integer",
+    "static": 300000
+  },
+  "mtg_current_type": {
+    "type": "string",
+    "static": "Fixed"
+  },
+  "loan_purpose": {
+    "type": "string",
+    "static": "Purchase"
+  }
+}

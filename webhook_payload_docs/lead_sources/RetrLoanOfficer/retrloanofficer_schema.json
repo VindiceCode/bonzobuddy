@@ -1,0 +1,34 @@
+{
+  "FirstName": {
+    "type": "string",
+    "dynamic": "firstName"
+  },
+  "LastName": {
+    "type": "string",
+    "dynamic": "lastName"
+  },
+  "Email_Personal": {
+    "type": "string",
+    "dynamic": "email"
+  },
+  "Phone_Cell": {
+    "type": "string",
+    "dynamic": "phone"
+  },
+  "NickName": {
+    "type": "string",
+    "dynamic": "firstName"
+  },
+  "Tags": {
+    "type": "string",
+    "static": "LO,RETR"
+  },
+  "NMLSId": {
+    "type": "integer",
+    "static": 123456
+  },
+  "Company": {
+    "type": "string",
+    "static": "RETR Mortgage"
+  }
+}

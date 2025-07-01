@@ -1,0 +1,51 @@
+# LoanBright
+
+The LoanBright integration supports two payload formats. The parser will merge the data from both formats, with the first format taking precedence.
+
+### Format 1
+
+- `brrwr_fname` (string)
+- `brrwr_lname` (string)
+- `brrwr_email` (string)
+- `brrwr_home_phone` (string)
+- `zip` (string)
+- `address` (string)
+- `state` (string)
+- `city` (string)
+- `prop_purpose` (string)
+- `prop_type` (string)
+- `prop_value` (numeric)
+- `mtg_desired_rate` (numeric)
+- `brrwr_bankruptcy` (string)
+- `brrwr_credit_rating` (string)
+- `loan_amount` (numeric)
+- `mtg_current_type` (string)
+- `loan_purpose` (string)
+- `prop_address` (string)
+- `prop_city` (string)
+- `prop_region_id` (string)
+- `prop_zip` (string)
+
+### Format 2
+
+- `firstName` (string)
+- `lastName` (string)
+- `email` (string)
+- `homePhone` (string) (or `cellPhone`, `workPhone`)
+- `mailZipCode` (string)
+- `mailStreetAddress` (string)
+- `mailState` (string)
+- `mailCity` (string)
+- `propertyPurpose` (string)
+- `propertyTypeName` (string)
+- `propertyValue` (numeric)
+- `mortgageInterestRate` (numeric)
+- `bankruptcy` (string)
+- `credit` (string)
+- `loanAmount` (numeric)
+- `loanType` (string)
+- `loanPurposeName` (string)
+- `propertyStreetAddress` (string)
+- `propertyCity` (string)
+- `propertyState` (string)
+- `propertyZipCode` (string)

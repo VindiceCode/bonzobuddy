@@ -1,0 +1,59 @@
+{
+  "format": "xml",
+  "rootElement": "OB_Lead",
+  "LT": {
+    "type": "object",
+    "properties": {
+      "LTXML": {
+        "type": "object",
+        "properties": {
+          "Borrower": {
+            "type": "object",
+            "properties": {
+              "BorrowerPersonalInformation": {
+                "type": "object",
+                "properties": {
+                  "Name": {
+                    "type": "object",
+                    "properties": {
+                      "FirstName": {
+                        "type": "string",
+                        "dynamic": "firstName"
+                      },
+                      "LastName": {
+                        "type": "string",
+                        "dynamic": "lastName"
+                      }
+                    }
+                  }
+                }
+              },
+              "ContactInformation": {
+                "type": "object",
+                "properties": {
+                  "Email": {
+                    "type": "string",
+                    "dynamic": "email"
+                  },
+                  "WorkPhone": {
+                    "type": "string",
+                    "dynamic": "phone"
+                  }
+                }
+              }
+            }
+          },
+          "Application": {
+            "type": "object",
+            "properties": {
+              "BorrowerRequestedLoanAmount": {
+                "type": "integer",
+                "static": 250000
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

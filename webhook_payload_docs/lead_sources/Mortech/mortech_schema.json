@@ -1,0 +1,29 @@
+{
+  "format": "xml",
+  "rootElement": "result",
+  "row": {
+    "type": "object",
+    "properties": {
+      "ProspectFirstName": {
+        "type": "string",
+        "dynamic": "firstName"
+      },
+      "ProspectLastName": {
+        "type": "string",
+        "dynamic": "lastName"
+      },
+      "ProspectEmail": {
+        "type": "string",
+        "dynamic": "email"
+      },
+      "ProspectMobilePhone": {
+        "type": "string",
+        "dynamic": "phone"
+      },
+      "ProspectLoanAmount": {
+        "type": "integer",
+        "static": 320000
+      }
+    }
+  }
+}

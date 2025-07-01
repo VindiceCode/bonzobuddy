@@ -1,0 +1,78 @@
+{
+  "FirstName": {
+    "type": "string",
+    "dynamic": "firstName"
+  },
+  "LastName": {
+    "type": "string",
+    "dynamic": "lastName"
+  },
+  "Email": {
+    "type": "string",
+    "dynamic": "email"
+  },
+  "CellPhone": {
+    "type": "string",
+    "dynamic": "phone"
+  },
+  "Zip": {
+    "type": "string",
+    "static": "12345"
+  },
+  "StreetAddress": {
+    "type": "string",
+    "static": "123 Main St"
+  },
+  "PropertyState": {
+    "type": "string",
+    "static": "CA"
+  },
+  "PropertyCity": {
+    "type": "string",
+    "static": "Anytown"
+  },
+  "PropertyUse": {
+    "type": "string",
+    "static": "Primary"
+  },
+  "PropertyType": {
+    "type": "string",
+    "static": "SingleFamily"
+  },
+  "PropertyValue": {
+    "type": "integer",
+    "static": 500000
+  },
+  "FirstMortgageRate": {
+    "type": "number",
+    "static": 3.25
+  },
+  "CreditRating": {
+    "type": "string",
+    "static": "Excellent"
+  },
+  "DesiredLoanAmount": {
+    "type": "integer",
+    "static": 350000
+  },
+  "DesiredRateType": {
+    "type": "string",
+    "static": "Fixed"
+  },
+  "LoanPurpose": {
+    "type": "string",
+    "static": "Refinance"
+  },
+  "EstimatedDownPayment": {
+    "type": "integer",
+    "static": 100000
+  },
+  "NewHomeValue": {
+    "type": "integer",
+    "static": 500000
+  },
+  "FoundHome": {
+    "type": "string",
+    "static": "true"
+  }
+}

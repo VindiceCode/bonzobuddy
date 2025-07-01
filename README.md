@@ -1,5 +1,7 @@
 # Bonzo Buddy: Webhook Payload Testing Tool
 
+![Bonzo Buddy Logo](assets/bonzobuddy.png)
+
 **Bonzo Buddy** is a professional, Python-based GUI application designed to streamline the process of testing webhook integrations. It provides a robust, intuitive, and stateful environment for managing test organizations, generating dynamic payloads, and verifying integration behavior.
 
 ## Core Features

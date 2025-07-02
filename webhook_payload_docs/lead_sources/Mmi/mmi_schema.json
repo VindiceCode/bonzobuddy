@@ -1,0 +1,53 @@
+{
+  "profiles": {
+    "Real Estate": {
+      "type": { "type": "string", "static": "Real Estate" },
+      "agent_active_volume": { "type": "integer", "static": 1500000 },
+      "agent_active_listings": { "type": "integer", "static": 5 },
+      "agent_rolling_buyside_volume": { "type": "integer", "static": 2500000 },
+      "agent_rolling_buyside_transactions": { "type": "integer", "static": 10 },
+      "agent_ytd_buyside_transactions": { "type": "integer", "static": 8 },
+      "agent_ytd_buyside_volume": { "type": "integer", "static": 2000000 },
+      "agent_rolling_listside_volume": { "type": "integer", "static": 3000000 },
+      "agent_rolling_listside_transactions": { "type": "integer", "static": 12 },
+      "agent_ytd_listside_transactions": { "type": "integer", "static": 9 },
+      "agent_ytd_listside_volume": { "type": "integer", "static": 2200000 }
+    },
+    "Mortgage": {
+      "type": { "type": "string", "static": "Mortgage" },
+      "lo_ytd_volume": { "type": "integer", "static": 5000000 },
+      "lo_ytd_transactions": { "type": "integer", "static": 20 },
+      "lo_ytd_trans_purch_percent": { "type": "string", "static": "75.00" },
+      "lo_ytd_trans_refi_percent": { "type": "string", "static": "25.00" },
+      "lo_ytd_trans_other_percent": { "type": "string", "static": "0.00" },
+      "lo_ytd_type_conv_percent": { "type": "string", "static": "60.00" },
+      "lo_ytd_type_fha_percent": { "type": "string", "static": "30.00" },
+      "lo_ytd_type_va_percent": { "type": "string", "static": "10.00" },
+      "lo_ytd_type_other_percent": { "type": "string", "static": "0.00" },
+      "lo_rolling_volume": { "type": "integer", "static": 10000000 },
+      "lo_rolling_transactions": { "type": "integer", "static": 40 },
+      "lo_rolling_trans_purch_percent": { "type": "string", "static": "80.00" },
+      "lo_rolling_trans_refi_percent": { "type": "string", "static": "20.00" },
+      "lo_rolling_trans_other_percent": { "type": "string", "static": "0.00" },
+      "lo_rolling_type_other_percent": { "type": "string", "static": "0.00" },
+      "lo_rolling_type_conv_percent": { "type": "string", "static": "70.00" },
+      "lo_rolling_type_fha_percent": { "type": "string", "static": "20.00" },
+      "lo_rolling_type_va_percent": { "type": "string", "static": "10.00" }
+    }
+  },
+  "base": {
+    "firstname": { "type": "string", "dynamic": "firstName" },
+    "lastname": { "type": "string", "dynamic": "lastName" },
+    "email": { "type": "string", "dynamic": "email" },
+    "phone": { "type": "string", "dynamic": "phone" },
+    "state": { "type": "string", "static": "CA" },
+    "company": { "type": "string", "static": "MMI" },
+    "notes": { "type": "string", "static": "This is a test lead from MMI." },
+    "nmls_id": { "type": "string", "static": "12345" },
+    "fastfacts": { "type": "string", "static": "https://example.com/fastfacts" },
+    "oppapp": { "type": "string", "static": "Gold" },
+    "google": { "type": "string", "static": "https://google.com" },
+    "linkedIn": { "type": "string", "static": "https://linkedin.com" },
+    "branch_address": { "type": "string", "static": "123 Main St, Anytown, CA 12345" }
+  }
+}

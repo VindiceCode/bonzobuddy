@@ -1,70 +1,50 @@
 {
-  "brrwr_fname": {
-    "type": "string",
-    "dynamic": "firstName"
-  },
-  "brrwr_lname": {
-    "type": "string",
-    "dynamic": "lastName"
-  },
-  "brrwr_email": {
-    "type": "string",
-    "dynamic": "email"
-  },
-  "brrwr_home_phone": {
-    "type": "string",
-    "dynamic": "phone"
-  },
-  "zip": {
-    "type": "string",
-    "static": "12345"
-  },
-  "address": {
-    "type": "string",
-    "static": "123 Main St"
-  },
-  "state": {
-    "type": "string",
-    "static": "CA"
-  },
-  "city": {
-    "type": "string",
-    "static": "Anytown"
-  },
-  "prop_purpose": {
-    "type": "string",
-    "static": "Purchase"
-  },
-  "prop_type": {
-    "type": "string",
-    "static": "SingleFamily"
-  },
-  "prop_value": {
-    "type": "integer",
-    "static": 400000
-  },
-  "mtg_desired_rate": {
-    "type": "number",
-    "static": 3.5
-  },
-  "brrwr_bankruptcy": {
-    "type": "string",
-    "static": "No"
-  },
-  "brrwr_credit_rating": {
-    "type": "string",
-    "static": "Good"
-  },
-  "loan_amount": {
-    "type": "integer",
-    "static": 300000
-  },
-  "mtg_current_type": {
-    "type": "string",
-    "static": "Fixed"
-  },
-  "loan_purpose": {
-    "type": "string",
-    "static": "Purchase"
+  "profiles": {
+    "Format 1": {
+      "brrwr_fname": { "type": "string", "dynamic": "firstName" },
+      "brrwr_lname": { "type": "string", "dynamic": "lastName" },
+      "brrwr_email": { "type": "string", "dynamic": "email" },
+      "brrwr_home_phone": { "type": "string", "dynamic": "phone" },
+      "zip": { "type": "string", "static": "12345" },
+      "address": { "type": "string", "static": "123 Main St" },
+      "state": { "type": "string", "static": "CA" },
+      "city": { "type": "string", "static": "Anytown" },
+      "prop_purpose": { "type": "string", "static": "Purchase" },
+      "prop_type": { "type": "string", "static": "SingleFamily" },
+      "prop_value": { "type": "integer", "static": 400000 },
+      "mtg_desired_rate": { "type": "number", "static": 3.5 },
+      "brrwr_bankruptcy": { "type": "string", "static": "No" },
+      "brrwr_credit_rating": { "type": "string", "static": "Good" },
+      "loan_amount": { "type": "integer", "static": 300000 },
+      "mtg_current_type": { "type": "string", "static": "Fixed" },
+      "loan_purpose": { "type": "string", "static": "Purchase" },
+      "prop_address": { "type": "string", "static": "123 Main St" },
+      "prop_city": { "type": "string", "static": "Anytown" },
+      "prop_region_id": { "type": "string", "static": "CA" },
+      "prop_zip": { "type": "string", "static": "12345" }
+    },
+    "Format 2": {
+      "firstName": { "type": "string", "dynamic": "firstName" },
+      "lastName": { "type": "string", "dynamic": "lastName" },
+      "email": { "type": "string", "dynamic": "email" },
+      "homePhone": { "type": "string", "dynamic": "phone" },
+      "mailZipCode": { "type": "string", "static": "12345" },
+      "mailStreetAddress": { "type": "string", "static": "123 Main St" },
+      "mailState": { "type": "string", "static": "CA" },
+      "mailCity": { "type": "string", "static": "Anytown" },
+      "propertyPurpose": { "type": "string", "static": "Purchase" },
+      "propertyTypeName": { "type": "string", "static": "SingleFamily" },
+      "propertyValue": { "type": "integer", "static": 400000 },
+      "mortgageInterestRate": { "type": "number", "static": 3.5 },
+      "bankruptcy": { "type": "string", "static": "No" },
+      "credit": { "type": "string", "static": "Good" },
+      "loanAmount": { "type": "integer", "static": 300000 },
+      "loanType": { "type": "string", "static": "Fixed" },
+      "loanPurposeName": { "type": "string", "static": "Purchase" },
+      "propertyStreetAddress": { "type": "string", "static": "123 Main St" },
+      "propertyCity": { "type": "string", "static": "Anytown" },
+      "propertyState": { "type": "string", "static": "CA" },
+      "propertyZipCode": { "type": "string", "static": "12345" }
+    }
   }
 }

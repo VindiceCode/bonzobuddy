@@ -1,55 +1,24 @@
 {
-  "first_name": {
-    "type": "string",
-    "dynamic": "firstName"
-  },
-  "last_name": {
-    "type": "string",
-    "dynamic": "lastName"
-  },
-  "email": {
-    "type": "string",
-    "dynamic": "email"
-  },
-  "phone": {
-    "type": "string",
-    "dynamic": "phone"
-  },
-  "address": {
-    "type": "string",
-    "static": "123 Main St"
-  },
-  "city": {
-    "type": "string",
-    "static": "Anytown"
-  },
-  "state": {
-    "type": "string",
-    "static": "CA"
-  },
-  "notes": {
-    "type": "string",
-    "static": "This is a test lead from LeadPops."
-  },
+  "first_name": { "type": "string", "dynamic": "firstName" },
+  "last_name": { "type": "string", "dynamic": "lastName" },
+  "email": { "type": "string", "dynamic": "email" },
+  "phone": { "type": "string", "dynamic": "phone" },
+  "address": { "type": "string", "static": "123 Main St" },
+  "city": { "type": "string", "static": "Anytown" },
+  "state": { "type": "string", "static": "CA" },
+  "notes": { "type": "string", "static": "This is a test lead from LeadPops." },
+  "dwelling_use": { "type": "string", "static": "PrimaryResidence" },
+  "foreclosure": { "type": "string", "static": "no" },
+  "working_with_agent": { "type": "string", "static": "yes" },
+  "bankruptcy": { "type": "string", "static": "no" },
+  "property_value": { "type": "integer", "static": 400000 },
   "coborrower": {
     "type": "object",
     "properties": {
-      "first_name": {
-        "type": "string",
-        "static": "Co"
-      },
-      "last_name": {
-        "type": "string",
-        "static": "Borrower"
-      },
-      "email": {
-        "type": "string",
-        "static": "co.borrower@test.com"
-      },
-      "phone": {
-        "type": "string",
-        "static": "555-111-2222"
-      }
+      "first_name": { "type": "string", "static": "Co" },
+      "last_name": { "type": "string", "static": "Borrower" },
+      "email": { "type": "string", "static": "co.borrower@test.com" },
+      "phone": { "type": "string", "static": "555-111-2222" }
     }
   }
 }

@@ -1,0 +1,41 @@
+{
+  "type": { "type": "string", "static": "quote" },
+  "sender": {
+    "type": "object",
+    "properties": {
+      "firstName": { "type": "string", "dynamic": "firstName" },
+      "lastName": { "type": "string", "dynamic": "lastName" },
+      "emailAddress": { "type": "string", "dynamic": "email" },
+      "phoneNumber": { "type": "string", "dynamic": "phone" }
+    }
+  },
+  "recipient": {
+    "type": "object",
+    "properties": {
+      "firstName": { "type": "string", "static": "Jane" },
+      "lastName": { "type": "string", "static": "LoanOfficer" },
+      "emailAddress": { "type": "string", "static": "jane.lo@example.com" },
+      "phoneNumber": { "type": "string", "static": "555-765-4321" }
+    }
+  },
+  "details": {
+    "type": "object",
+    "properties": {
+      "agentFirstName": { "type": "string", "static": "Bob" },
+      "agentLastName": { "type": "string", "static": "Realtor" },
+      "agentPhoneNumber": { "type": "string", "static": "555-555-1234" },
+      "agentEmailAddress": { "type": "string", "static": "bob.realtor@example.com" },
+      "creditScoreHigh": { "type": "integer", "static": 750 },
+      "creditScoreLow": { "type": "integer", "static": 720 },
+      "loanAmount": { "type": "integer", "static": 350000 },
+      "downPayment": { "type": "integer", "static": 50000 },
+      "desiredPrograms": { "type": "string", "static": "Fixed30Year" },
+      "loanPurpose": { "type": "string", "static": "Purchase" },
+      "propertyValue": { "type": "integer", "static": 400000 },
+      "stateAbbreviation": { "type": "string", "static": "CA" },
+      "zipCode": { "type": "string", "static": "90210" },
+      "hasBankruptcy": { "type": "boolean", "static": false },
+      "hasForeclosure": { "type": "boolean", "static": false }
+    }
+  }
+}

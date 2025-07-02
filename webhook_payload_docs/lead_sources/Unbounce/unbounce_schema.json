@@ -1,6 +1,6 @@
 {
   "data_json": {
     "type": "string",
-    "static": "{\"first_name\":[\"John\"],\"last_name\":[\"Doe\"],\"email\":[\"john.doe@test.com\"],\"phone\":[\"555-123-4567\"]}"
+    "static": "{\"first_name\":[\"John\"],\"last_name\":[\"Doe\"],\"email\":[\"john.doe@test.com\"],\"phone\":[\"555-123-4567\"], \"address\":[\"123 Unbounce St\"], \"city\":[\"Bounceville\"], \"state\":[\"CA\"]}"
   }
 }

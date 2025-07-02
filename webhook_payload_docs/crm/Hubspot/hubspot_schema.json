@@ -1,55 +1,51 @@
 {
-  "is-contact": {
-    "type": "boolean",
-    "static": true
-  },
+  "is-contact": { "type": "boolean", "static": true },
   "properties": {
     "type": "object",
     "properties": {
       "hs_object_id": {
         "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "static": "12345"
-          }
-        }
+        "properties": { "value": { "type": "string", "static": "12345" } }
       },
       "firstname": {
         "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "dynamic": "firstName"
-          }
-        }
+        "properties": { "value": { "type": "string", "dynamic": "firstName" } }
       },
       "lastname": {
         "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "dynamic": "lastName"
-          }
-        }
+        "properties": { "value": { "type": "string", "dynamic": "lastName" } }
       },
       "email": {
         "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "dynamic": "email"
-          }
-        }
+        "properties": { "value": { "type": "string", "dynamic": "email" } }
       },
       "phone": {
         "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "dynamic": "phone"
-          }
-        }
+        "properties": { "value": { "type": "string", "dynamic": "phone" } }
+      },
+      "state": {
+        "type": "object",
+        "properties": { "value": { "type": "string", "static": "CA" } }
+      },
+      "city": {
+        "type": "object",
+        "properties": { "value": { "type": "string", "static": "Anytown" } }
+      },
+      "zip": {
+        "type": "object",
+        "properties": { "value": { "type": "string", "static": "12345" } }
+      },
+      "dealer_id": {
+        "type": "object",
+        "properties": { "value": { "type": "string", "static": "dealer-abc" } }
+      },
+      "hubspot_owner_id": {
+        "type": "object",
+        "properties": { "value": { "type": "string", "static": "owner-123" } }
+      },
+      "hs_analytics_last_url": {
+        "type": "object",
+        "properties": { "value": { "type": "string", "static": "https://example.com/last-page" } }
       }
     }
   }

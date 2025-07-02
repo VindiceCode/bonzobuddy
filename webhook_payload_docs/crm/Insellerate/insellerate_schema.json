@@ -1,38 +1,12 @@
 {
-  "first_name": {
-    "type": "string",
-    "dynamic": "firstName"
-  },
-  "last_name": {
-    "type": "string",
-    "dynamic": "lastName"
-  },
-  "email": {
-    "type": "string",
-    "dynamic": "email"
-  },
-  "phone": {
-    "type": "string",
-    "dynamic": "phone"
-  },
-  "address": {
-    "type": "string",
-    "static": "123 Main St"
-  },
-  "city": {
-    "type": "string",
-    "static": "Anytown"
-  },
-  "state": {
-    "type": "string",
-    "static": "CA"
-  },
-  "lead_id": {
-    "type": "string",
-    "static": "12345"
-  },
-  "insellerate_assignee_id": {
-    "type": "string",
-    "static": "67890"
-  }
+  "first_name": { "type": "string", "dynamic": "firstName" },
+  "last_name": { "type": "string", "dynamic": "lastName" },
+  "email": { "type": "string", "dynamic": "email" },
+  "phone": { "type": "string", "dynamic": "phone" },
+  "address": { "type": "string", "static": "123 Main St" },
+  "city": { "type": "string", "static": "Anytown" },
+  "state": { "type": "string", "static": "CA" },
+  "lead_id": { "type": "string", "static": "ins-12345" },
+  "insellerate_assignee_id": { "type": "string", "static": "assignee-678" },
+  "dwelling_use": { "type": "string", "static": "PrimaryResidence" }
 }

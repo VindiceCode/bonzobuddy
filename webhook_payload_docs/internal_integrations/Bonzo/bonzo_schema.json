@@ -1,38 +1,17 @@
 {
-  "first_name": {
-    "type": "string",
-    "dynamic": "firstName"
-  },
-  "last_name": {
-    "type": "string",
-    "dynamic": "lastName"
-  },
-  "email": {
-    "type": "string",
-    "dynamic": "email"
-  },
-  "phone": {
-    "type": "string",
-    "dynamic": "phone"
-  },
-  "address": {
-    "type": "string",
-    "static": "123 Main St"
-  },
-  "city": {
-    "type": "string",
-    "static": "Anytown"
-  },
-  "state": {
-    "type": "string",
-    "static": "CA"
-  },
-  "zip": {
-    "type": "string",
-    "static": "12345"
-  },
-  "notes": {
-    "type": "string",
-    "static": "This is a test lead from Bonzo."
-  }
+  "first_name": { "type": "string", "dynamic": "firstName" },
+  "last_name": { "type": "string", "dynamic": "lastName" },
+  "email": { "type": "string", "dynamic": "email" },
+  "phone": { "type": "string", "dynamic": "phone" },
+  "address": { "type": "string", "static": "123 Main St" },
+  "city": { "type": "string", "static": "Anytown" },
+  "state": { "type": "string", "static": "CA" },
+  "zip": { "type": "string", "static": "12345" },
+  "marital_status": { "type": "string", "static": "Single" },
+  "prospect_type": { "type": "string", "static": "Regular" },
+  "unit_number": { "type": "string", "static": "Apt 1" },
+  "alias": { "type": "string", "static": "Johnny" },
+  "birthday": { "type": "string", "static": "01/01/1990" },
+  "notes": { "type": "string", "static": "This is a test lead from Bonzo." },
+  "external_id": { "type": "string", "static": "bonzo-ext-123" }
 }

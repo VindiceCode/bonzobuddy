@@ -1,97 +1,69 @@
 {
-  "lead": {
-    "type": "object",
-    "properties": {
-      "consumer": {
+  "profiles": {
+    "JSON": {
+      "lead": {
         "type": "object",
         "properties": {
-          "contact": {
+          "consumer": {
             "type": "object",
             "properties": {
-              "firstName": {
-                "type": "string",
-                "dynamic": "firstName"
-              },
-              "lastName": {
-                "type": "string",
-                "dynamic": "lastName"
-              },
-              "emailAddress": {
-                "type": "string",
-                "dynamic": "email"
-              },
-              "primaryPhone": {
-                "type": "string",
-                "dynamic": "phone"
-              },
-              "streetAddress": {
-                "type": "string",
-                "static": "123 Main St"
-              },
-              "city": {
-                "type": "string",
-                "static": "Anytown"
-              },
-              "state": {
-                "type": "string",
-                "static": "CA"
-              },
-              "zip": {
-                "type": "string",
-                "static": "12345"
-              }
-            }
-          },
-          "profile": {
-            "type": "object",
-            "properties": {
-              "dateOfBirth": {
-                "type": "string",
-                "static": "1990-01-01"
-              },
-              "credit": {
+              "contact": {
                 "type": "object",
                 "properties": {
-                  "selfCreditRating": {
-                    "type": "string",
-                    "static": "Excellent"
-                  }
+                  "firstName": { "type": "string", "dynamic": "firstName" },
+                  "lastName": { "type": "string", "dynamic": "lastName" },
+                  "emailAddress": { "type": "string", "dynamic": "email" },
+                  "primaryPhone": { "type": "string", "dynamic": "phone" },
+                  "streetAddress": { "type": "string", "static": "123 Main St" },
+                  "city": { "type": "string", "static": "Anytown" },
+                  "state": { "type": "string", "static": "CA" },
+                  "zip": { "type": "string", "static": "12345" }
                 }
               },
-              "totalAnnualIncome": {
-                "type": "integer",
-                "static": 120000
-              }
-            }
-          }
-        }
-      },
-      "vertical": {
-        "type": "string",
-        "static": "MORTGAGE.PURCHASE"
-      },
-      "leadExternalId": {
-        "type": "string",
-        "static": "123456789"
-      },
-      "mortgagePurchase": {
-        "type": "object",
-        "properties": {
-          "property": {
-            "type": "object",
-            "properties": {
-              "zip": {
-                "type": "string",
-                "static": "12345"
+              "profile": {
+                "type": "object",
+                "properties": {
+                  "dateOfBirth": { "type": "string", "static": "1990-01-01" },
+                  "credit": {
+                    "type": "object",
+                    "properties": {
+                      "selfCreditRating": { "type": "string", "static": "Excellent" }
+                    }
+                  },
+                  "totalAnnualIncome": { "type": "integer", "static": 120000 }
+                }
               }
             }
           },
-          "loanAmount": {
-            "type": "integer",
-            "static": 300000
+          "vertical": { "type": "string", "static": "MORTGAGE.PURCHASE" },
+          "leadExternalId": { "type": "string", "static": "123456789" },
+          "mortgagePurchase": {
+            "type": "object",
+            "properties": {
+              "property": {
+                "type": "object",
+                "properties": {
+                  "zip": { "type": "string", "static": "12345" }
+                }
+              },
+              "loanAmount": { "type": "integer", "static": 300000 }
+            }
           }
         }
       }
+    },
+    "XML": {
+        "format": "xml",
+        "rootElement": "LeadInformation",
+        "ConsumerContactInformation": {
+            "type": "object",
+            "properties": {
+                "FirstName": { "type": "string", "dynamic": "firstName" },
+                "LastName": { "type": "string", "dynamic": "lastName" },
+                "EmailAddress": { "type": "string", "dynamic": "email" },
+                "ContactPhone": { "type": "string", "dynamic": "phone" }
+            }
+        }
     }
   }
 }

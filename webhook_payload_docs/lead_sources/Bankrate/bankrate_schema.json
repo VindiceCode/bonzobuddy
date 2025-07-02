@@ -1,42 +1,13 @@
 {
-  "first_name": {
-    "type": "string",
-    "dynamic": "firstName"
-  },
-  "last_name": {
-    "type": "string",
-    "dynamic": "lastName"
-  },
-  "email": {
-    "type": "string",
-    "dynamic": "email"
-  },
-  "phone": {
-    "type": "string",
-    "dynamic": "phone"
-  },
-  "address": {
-    "type": "string",
-    "static": "123 Main St"
-  },
-  "city": {
-    "type": "string",
-    "static": "Anytown"
-  },
-  "state": {
-    "type": "string",
-    "static": "CA"
-  },
-  "notes": {
-    "type": "string",
-    "static": "This is a test lead from Bankrate."
-  },
-  "property_value": {
-    "type": "integer",
-    "static": 450000
-  },
-  "loan_amount": {
-    "type": "integer",
-    "static": 300000
-  }
+  "first_name": { "type": "string", "dynamic": "firstName" },
+  "last_name": { "type": "string", "dynamic": "lastName" },
+  "email": { "type": "string", "dynamic": "email" },
+  "phone": { "type": "string", "dynamic": "phone" },
+  "address": { "type": "string", "static": "123 Main St" },
+  "city": { "type": "string", "static": "Anytown" },
+  "state": { "type": "string", "static": "CA" },
+  "notes": { "type": "string", "static": "This is a test lead from Bankrate." },
+  "property_value": { "type": "integer", "static": 450000 },
+  "loan_amount": { "type": "integer", "static": 300000 },
+  "dwelling_use": { "type": "string", "static": "PrimaryResidence" }
 }

@@ -47,7 +47,7 @@ This project uses `uv`, a modern and extremely fast Python package manager.
 Once the setup is complete, you can run the application from within the `bonzobuddy` directory using the `uv run` command. This ensures the script is executed within the correct virtual environment.
 
 ```bash
-uv run python sendhook_app/main.py
+uv run python app/main.py 
 ```
 
 ## How to Use the Tool

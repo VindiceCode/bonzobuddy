@@ -1,0 +1,19 @@
+{
+  "PrimaryBorrower": { "type": "string", "dynamic": "firstName" },
+  "ConsumerEmail": { "type": "string", "dynamic": "email" },
+  "ConsumerPhone": { "type": "string", "dynamic": "phone" },
+  "FullAddress": { "type": "string", "static": "123 Main St, Anytown, CA 12345" },
+  "TransactionID": { "type": "string", "static": "txn-123" },
+  "Mortgage1RecordingDate": { "type": "string", "static": "2023-01-15" },
+  "AnnualInterestRate": { "type": "number", "static": 3.75 },
+  "Mortgage1Type": { "type": "string", "static": "CONVENTIONAL" },
+  "RateSpread": { "type": "number", "static": 0.5 },
+  "Equity": { "type": "integer", "static": 150000 },
+  "MonthlySavings30yr": { "type": "integer", "static": 300 },
+  "BenefitClassification": { "type": "string", "static": "Cash Out" },
+  "UnpaidBalance": { "type": "integer", "static": 250000 },
+  "Mortgage1Amount": { "type": "integer", "static": 400000 },
+  "PropertyValue": { "type": "integer", "static": 550000 },
+  "CurrentLTV": { "type": "number", "static": 72.7 },
+  "PaymentsMade": { "type": "integer", "static": 24 }
+}

@@ -1,13 +1,14 @@
 # MMI
 
-The MMI integration expects the following fields in the payload:
+The MMI integration has two payload variations, determined by the `type` field.
+
+### Common Fields
 
 - `firstname` (string)
 - `lastname` (string)
 - `email` (string)
 - `phone` (string)
 - `state` (string)
-- `type` (string, "Real Estate" or "Mortgage")
 - `company` (string)
 - `notes` (string)
 - `nmls_id` (string)
@@ -17,10 +18,9 @@ The MMI integration expects the following fields in the payload:
 - `linkedIn` (string)
 - `branch_address` (string)
 
-### Agent-Specific Fields
+### `Real Estate` Type Fields
 
-If `type` is "Real Estate", the following fields are also expected:
-
+- `type` (string, static: "Real Estate")
 - `agent_active_volume` (numeric)
 - `agent_active_listings` (numeric)
 - `agent_rolling_buyside_volume` (numeric)
@@ -32,10 +32,9 @@ If `type` is "Real Estate", the following fields are also expected:
 - `agent_ytd_listside_transactions` (numeric)
 - `agent_ytd_listside_volume` (numeric)
 
-### Loan Officer-Specific Fields
+### `Mortgage` Type Fields
 
-If `type` is "Mortgage", the following fields are also expected:
-
+- `type` (string, static: "Mortgage")
 - `lo_ytd_volume` (numeric)
 - `lo_ytd_transactions` (numeric)
 - `lo_ytd_trans_purch_percent` (string)

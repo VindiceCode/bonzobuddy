@@ -202,6 +202,33 @@ class AppStateManager:
         self.data_service.save_organizations(organizations)
         self._notify_update()
     
+    def delete_organization(self, organization_id: str) -> None:
+        """Delete organization and all associated data."""
+        organizations = self.get_organizations()
+        
+        # Remove organization from list
+        organizations = [org for org in organizations if org.id != organization_id]
+        
+        # If the deleted organization was selected, clear all related state
+        if self.state.selected_organization and self.state.selected_organization.id == organization_id:
+            self.state.selected_organization = None
+            self.state.selected_webhook_index = None
+            self.state.selected_prospect = None
+            self.state.pending_prospect = None
+            self.state.generated_payload = None
+            self.state.payload_editable = False
+            self.state.selected_profile = None
+            self.state.available_profiles = []
+        
+        # Clear any prospects associated with this organization
+        prospects_data = self.data_service.get_generated_prospects_data()
+        if organization_id in prospects_data.data:
+            del prospects_data.data[organization_id]
+            self.data_service.save_generated_prospects_data(prospects_data)
+        
+        self.data_service.save_organizations(organizations)
+        self._notify_update()
+    
     def delete_webhook(self, webhook_index: int) -> None:
         """Delete webhook from selected organization."""
         if not self.state.selected_organization:

@@ -138,6 +138,18 @@ class BonzoBuddyApp(ctk.CTk):
         )
         self.edit_org_btn.grid(row=1, column=0, columnspan=2, padx=5, pady=5, sticky="ew")
         
+        self.delete_org_btn = ctk.CTkButton(
+            buttons_frame,
+            text="Delete Organization",
+            command=self.delete_organization,
+            font=self.button_font,
+            height=40,
+            state="disabled",
+            fg_color=self.colors["warning"],
+            hover_color=self.colors["warning_hover"]
+        )
+        self.delete_org_btn.grid(row=2, column=0, columnspan=2, padx=5, pady=5, sticky="ew")
+        
         # Bonzo integration buttons
         self.open_team_btn = ctk.CTkButton(
             buttons_frame,
@@ -149,7 +161,7 @@ class BonzoBuddyApp(ctk.CTk):
             fg_color=self.colors["bonzo"],
             hover_color=self.colors["bonzo_hover"]
         )
-        self.open_team_btn.grid(row=2, column=0, padx=5, pady=5, sticky="ew")
+        self.open_team_btn.grid(row=3, column=0, padx=5, pady=5, sticky="ew")
         
         self.open_owner_btn = ctk.CTkButton(
             buttons_frame,
@@ -161,7 +173,7 @@ class BonzoBuddyApp(ctk.CTk):
             fg_color=self.colors["bonzo"],
             hover_color=self.colors["bonzo_hover"]
         )
-        self.open_owner_btn.grid(row=2, column=1, padx=5, pady=5, sticky="ew")
+        self.open_owner_btn.grid(row=3, column=1, padx=5, pady=5, sticky="ew")
         
         # Admin password management buttons (always available)
         self.set_password_btn = ctk.CTkButton(
@@ -483,6 +495,7 @@ class BonzoBuddyApp(ctk.CTk):
         
         # Organization column buttons
         self.edit_org_btn.configure(state="normal" if has_org else "disabled")
+        self.delete_org_btn.configure(state="normal" if has_org else "disabled")
         self.open_team_btn.configure(state="normal" if has_org else "disabled")
         self.open_owner_btn.configure(state="normal" if has_org else "disabled")
         
@@ -548,6 +561,26 @@ class BonzoBuddyApp(ctk.CTk):
         popup.transient(self)
         popup.focus_set()
         self.after(100, popup.grab_set)  # Delayed grab_set to ensure window is visible
+    
+    def delete_organization(self) -> None:
+        """Delete selected organization with confirmation."""
+        if not self.state_manager.state.selected_organization:
+            return
+        
+        org_name = self.state_manager.state.selected_organization.name
+        webhook_count = len(self.state_manager.state.selected_organization.webhooks)
+        
+        # Show confirmation dialog
+        confirm_msg = f"Are you sure you want to delete the organization '{org_name}'?"
+        if webhook_count > 0:
+            confirm_msg += f"\n\nThis will also delete {webhook_count} webhook(s) and all associated data."
+        confirm_msg += "\n\nThis action cannot be undone."
+        
+        result = messagebox.askyesno("Confirm Delete", confirm_msg, icon="warning")
+        if result:
+            org_id = self.state_manager.state.selected_organization.id
+            self.state_manager.delete_organization(org_id)
+            messagebox.showinfo("Success", f"Organization '{org_name}' has been deleted.")
     
     def open_team_in_bonzo(self) -> None:
         """Open team page in Bonzo platform."""

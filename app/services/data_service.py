@@ -36,8 +36,14 @@ class DataService:
             temp_file.flush()
             os.fsync(temp_file.fileno())
         
-        # Atomic rename
-        os.rename(temp_file.name, file_path)
+        # Atomic rename - handle Windows file exists issue
+        try:
+            os.rename(temp_file.name, file_path)
+        except OSError:
+            # On Windows, remove existing file before rename
+            if file_path.exists():
+                file_path.unlink()
+            os.rename(temp_file.name, file_path)
     
     def get_organizations(self) -> List[Organization]:
         """Load organizations from JSON and parse into Pydantic models."""

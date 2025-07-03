@@ -185,7 +185,7 @@ class BonzoBuddyApp(ctk.CTk):
             fg_color=self.colors["accent"],
             hover_color=self.colors["accent_hover"]
         )
-        self.set_password_btn.grid(row=3, column=0, padx=5, pady=5, sticky="ew")
+        self.set_password_btn.grid(row=4, column=0, padx=5, pady=5, sticky="ew")
         
         self.copy_password_btn = ctk.CTkButton(
             buttons_frame,
@@ -196,7 +196,7 @@ class BonzoBuddyApp(ctk.CTk):
             fg_color=self.colors["neutral"],
             hover_color=self.colors["neutral_hover"]
         )
-        self.copy_password_btn.grid(row=3, column=1, padx=5, pady=5, sticky="ew")
+        self.copy_password_btn.grid(row=4, column=1, padx=5, pady=5, sticky="ew")
     
     def create_webhook_column(self) -> None:
         """Create the second column for webhook and prospect management."""

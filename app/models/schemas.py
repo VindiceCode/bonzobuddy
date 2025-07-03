@@ -120,6 +120,12 @@ class IntegrationSchema(BaseModel):
         # Convert JSON schema format to Pydantic models
         fields = {}
         for field_name, field_def in schema_data.items():
+            # Handle case where field_def is a string instead of dict
+            if isinstance(field_def, str):
+                field_def = {"type": "string", "static": field_def}
+            elif not isinstance(field_def, dict):
+                print(f"Warning: Skipping malformed field '{field_name}' in schema: expected dict or string, got {type(field_def)}")
+                continue
             fields[field_name] = cls._convert_json_field(field_def)
         
         # Extract name from filename

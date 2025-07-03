@@ -236,7 +236,7 @@ class AddWebhookPopup(ctk.CTkToplevel):
             if isinstance(widget, ctk.CTkButton) and widget.cget("text") == integration:
                 widget.configure(fg_color="#1565C0")
             elif isinstance(widget, ctk.CTkButton):
-                widget.configure(fg_color=None)
+                widget.configure(fg_color="transparent")
         
         self.save_btn.configure(state="normal")
     

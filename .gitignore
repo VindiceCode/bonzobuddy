@@ -20,3 +20,9 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# Test Reports (generated artifacts)
+reports/*.html
+reports/*.json
+reports/integration_health_reports/*.json
+reports/pytest_reports/*.html

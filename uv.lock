@@ -184,31 +184,20 @@ name = "bonzobuddy"
 version = "2.0.0"
 source = { editable = "." }
 dependencies = [
-    { name = "customtkinter" },
-    { name = "keyring" },
-    { name = "pydantic" },
-    { name = "requests" },
-]
-
-[package.optional-dependencies]
-dev = [
-    { name = "black" },
-    { name = "isort" },
-    { name = "mypy" },
-    { name = "pytest" },
-]
-testing = [
     { name = "aiohappyeyeballs" },
     { name = "aiohttp" },
     { name = "aiosignal" },
     { name = "attrs" },
+    { name = "customtkinter" },
     { name = "frozenlist" },
     { name = "iniconfig" },
     { name = "jinja2" },
+    { name = "keyring" },
     { name = "markupsafe" },
     { name = "multidict" },
     { name = "pluggy" },
     { name = "propcache" },
+    { name = "pydantic" },
     { name = "pygments" },
     { name = "pytest" },
     { name = "pytest-asyncio" },
@@ -218,36 +207,41 @@ testing = [
     { name = "requests" },
 ]
 
+[package.optional-dependencies]
+dev = [
+    { name = "black" },
+    { name = "isort" },
+    { name = "mypy" },
+]
+
 [package.metadata]
 requires-dist = [
-    { name = "aiohappyeyeballs", marker = "extra == 'testing'", specifier = ">=2.6.1" },
-    { name = "aiohttp", marker = "extra == 'testing'", specifier = ">=3.12.13" },
-    { name = "aiosignal", marker = "extra == 'testing'", specifier = ">=1.3.2" },
-    { name = "attrs", marker = "extra == 'testing'", specifier = ">=25.3.0" },
+    { name = "aiohappyeyeballs", specifier = ">=2.6.1" },
+    { name = "aiohttp", specifier = ">=3.12.13" },
+    { name = "aiosignal", specifier = ">=1.3.2" },
+    { name = "attrs", specifier = ">=25.3.0" },
     { name = "black", marker = "extra == 'dev'", specifier = ">=23.0.0" },
     { name = "customtkinter", specifier = ">=5.2.0" },
-    { name = "frozenlist", marker = "extra == 'testing'", specifier = ">=1.7.0" },
-    { name = "iniconfig", marker = "extra == 'testing'", specifier = ">=2.1.0" },
+    { name = "frozenlist", specifier = ">=1.7.0" },
+    { name = "iniconfig", specifier = ">=2.1.0" },
     { name = "isort", marker = "extra == 'dev'", specifier = ">=5.12.0" },
-    { name = "jinja2", marker = "extra == 'testing'", specifier = ">=3.1.6" },
+    { name = "jinja2", specifier = ">=3.1.6" },
     { name = "keyring", specifier = ">=24.0.0" },
-    { name = "markupsafe", marker = "extra == 'testing'", specifier = ">=3.0.2" },
-    { name = "multidict", marker = "extra == 'testing'", specifier = ">=6.6.3" },
+    { name = "markupsafe", specifier = ">=3.0.2" },
+    { name = "multidict", specifier = ">=6.6.3" },
     { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.5.0" },
-    { name = "pluggy", marker = "extra == 'testing'", specifier = ">=1.6.0" },
-    { name = "propcache", marker = "extra == 'testing'", specifier = ">=0.3.2" },
+    { name = "pluggy", specifier = ">=1.6.0" },
+    { name = "propcache", specifier = ">=0.3.2" },
     { name = "pydantic", specifier = ">=2.0.0" },
-    { name = "pygments", marker = "extra == 'testing'", specifier = ">=2.19.2" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=7.0.0" },
-    { name = "pytest", marker = "extra == 'testing'", specifier = ">=8.4.1" },
-    { name = "pytest-asyncio", marker = "extra == 'testing'", specifier = ">=1.0.0" },
-    { name = "pytest-html", marker = "extra == 'testing'", specifier = ">=4.1.1" },
-    { name = "pytest-metadata", marker = "extra == 'testing'", specifier = ">=3.1.1" },
-    { name = "pyyaml", marker = "extra == 'testing'", specifier = ">=6.0.2" },
+    { name = "pygments", specifier = ">=2.19.2" },
+    { name = "pytest", specifier = ">=8.4.1" },
+    { name = "pytest-asyncio", specifier = ">=1.0.0" },
+    { name = "pytest-html", specifier = ">=4.1.1" },
+    { name = "pytest-metadata", specifier = ">=3.1.1" },
+    { name = "pyyaml", specifier = ">=6.0.2" },
     { name = "requests", specifier = ">=2.31.0" },
-    { name = "requests", marker = "extra == 'testing'", specifier = ">=2.31.0" },
 ]
-provides-extras = ["dev", "testing"]
+provides-extras = ["dev"]
 
 [[package]]
 name = "certifi"

@@ -214,9 +214,14 @@ class BonzoAPIClient:
         
         test_prospects = []
         for prospect in all_prospects:
-            if (test_pattern.lower() in prospect.first_name.lower() or 
-                test_pattern.lower() in prospect.last_name.lower() or
-                test_pattern.lower() in prospect.full_name.lower()):
+            # Handle None values safely
+            first_name = (prospect.first_name or "").lower()
+            last_name = (prospect.last_name or "").lower() 
+            full_name = (prospect.full_name or "").lower()
+            
+            if (test_pattern.lower() in first_name or 
+                test_pattern.lower() in last_name or
+                test_pattern.lower() in full_name):
                 test_prospects.append(prospect)
         
         logger.info(f"Found {len(test_prospects)} test prospects matching '{test_pattern}' for user {user_id}")

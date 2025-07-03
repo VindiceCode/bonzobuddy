@@ -6,7 +6,7 @@ superuser_api_key: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI4IiwianRpIjo
 integration_type: "monitorbase"
 test_records: 21
 distribution: "even"  # Split evenly among test users
-processing_delay: 30  # seconds to wait before validation
+processing_delay: 5  # seconds to wait before validation
 
 test_users:
   - name: "RevTeamUser1"

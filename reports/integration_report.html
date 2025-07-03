@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title id="head-title">integration_report.html</title>
+      <link href="assets/style.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <h1 id="title">integration_report.html</h1>
+    <p>Report generated on 03-Jul-2025 at 14:16:09 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a>
+        v4.1.1</p>
+    <div id="environment-header">
+      <h2>Environment</h2>
+    </div>
+    <table id="environment"></table>
+    <!-- TEMPLATES -->
+      <template id="template_environment_row">
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </template>
+    <template id="template_results-table__body--empty">
+      <tbody class="results-table-row">
+        <tr id="not-found-message">
+          <td colspan="4">No results found. Check the filters.</th>
+        </tr>
+    </template>
+    <template id="template_results-table__tbody">
+      <tbody class="results-table-row">
+        <tr class="collapsible">
+        </tr>
+        <tr class="extras-row">
+          <td class="extra" colspan="4">
+            <div class="extraHTML"></div>
+            <div class="media">
+              <div class="media-container">
+                  <div class="media-container__nav--left"><</div>
+                  <div class="media-container__viewport">
+                    <img src="" />
+                    <video controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="media-container__nav--right">></div>
+                </div>
+                <div class="media__name"></div>
+                <div class="media__counter"></div>
+            </div>
+            <div class="logwrapper">
+              <div class="logexpander"></div>
+              <div class="log"></div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </template>
+    <!-- END TEMPLATES -->
+    <div class="summary">
+      <div class="summary__data">
+        <h2>Summary</h2>
+        <div class="additional-summary prefix">
+        </div>
+        <p class="run-count">5 tests took 00:00:34.</p>
+        <p class="filter">(Un)check the boxes to filter the results.</p>
+        <div class="summary__reload">
+          <div class="summary__reload__button hidden" onclick="location.reload()">
+            <div>There are still tests running. <br />Reload this page to get the latest results!</div>
+          </div>
+        </div>
+        <div class="summary__spacer"></div>
+        <div class="controls">
+          <div class="filters">
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="failed" />
+            <span class="failed">2 Failed,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="passed" />
+            <span class="passed">3 Passed,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="skipped" />
+            <span class="skipped">4 Skipped,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="xfailed" disabled/>
+            <span class="xfailed">0 Expected failures,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="xpassed" disabled/>
+            <span class="xpassed">0 Unexpected passes,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="error" disabled/>
+            <span class="error">0 Errors,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="rerun" disabled/>
+            <span class="rerun">0 Reruns</span>
+          </div>
+          <div class="collapse">
+            <button id="show_all_details">Show all details</button>&nbsp;/&nbsp;<button id="hide_all_details">Hide all details</button>
+          </div>
+        </div>
+      </div>
+      <div class="additional-summary summary">
+      </div>
+      <div class="additional-summary postfix">
+      </div>
+    </div>
+    <table id="results-table">
+      <thead id="results-table-head">
+        <tr>
+          <th class="sortable" data-column-type="result">Result</th>
+          <th class="sortable" data-column-type="testId">Test</th>
+          <th class="sortable" data-column-type="duration">Duration</th>
+          <th>Links</th>
+        </tr>
+      </thead>
+    </table>
+  </body>
+  <footer>
+    <div id="data-container" data-jsonblob="{&#34;environment&#34;: {&#34;Python&#34;: &#34;3.12.3&#34;, &#34;Platform&#34;: &#34;Linux-6.8.0-63-generic-x86_64-with-glibc2.39&#34;, &#34;Packages&#34;: {&#34;pytest&#34;: &#34;8.4.1&#34;, &#34;pluggy&#34;: &#34;1.6.0&#34;}, &#34;Plugins&#34;: {&#34;metadata&#34;: &#34;3.1.1&#34;, &#34;asyncio&#34;: &#34;1.0.0&#34;, &#34;html&#34;: &#34;4.1.1&#34;}}, &#34;tests&#34;: {&#34;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_webhook_endpoint_availability&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_webhook_endpoint_availability&#34;, &#34;duration&#34;: &#34;360 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_webhook_endpoint_availability&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;360 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;No log output captured.&#34;}], &#34;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_bulk_webhook_delivery&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Failed&#34;, &#34;testId&#34;: &#34;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_bulk_webhook_delivery&#34;, &#34;duration&#34;: &#34;664 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Failed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_bulk_webhook_delivery&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;664 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;self = &amp;lt;tests.integration_tests.test_monitorbase_integration.TestMonitorbaseIntegration object at 0x7d20e5d03170&amp;gt;\ntest_config = TestConfig(test_name=&amp;#x27;Monitorbase Integration Test&amp;#x27;, webhook_url=&amp;#x27;https://app.getbonzo.com/api/webhook/ab87062c614c7b1...hes_lo_email=False), ValidationRule(field=&amp;#x27;business_entity_id&amp;#x27;, expected=&amp;#x27;team_id_from_user&amp;#x27;, matches_lo_email=False)])\npayload_template = {&amp;#x27;address&amp;#x27;: &amp;#x27;{address}&amp;#x27;, &amp;#x27;alert_date&amp;#x27;: &amp;#x27;{alert_date}&amp;#x27;, &amp;#x27;alert_id&amp;#x27;: &amp;#x27;alert-{record_id}&amp;#x27;, &amp;#x27;alert_intel&amp;#x27;: &amp;#x27;Credit Inquiry&amp;#x27;, ...}\ntest_data_pattern = &amp;#x27;TestRecord_Monitorbase_20250703_141535&amp;#x27;\n\n    @pytest.mark.webhook\n    def test_bulk_webhook_delivery(self, test_config, payload_template, test_data_pattern):\n        &amp;quot;&amp;quot;&amp;quot;Test bulk webhook delivery with proper distribution among users.&amp;quot;&amp;quot;&amp;quot;\n        # Generate test data\n        factory = TestDataFactory(test_config, payload_template)\n        self.test_records = factory.generate_test_records(self.test_run_id)\n    \n        # Validate test data generation\n        validation_results = factory.validate_test_records(self.test_records)\n        assert validation_results[&amp;#x27;records_match&amp;#x27;], f&amp;quot;Expected {validation_results[&amp;#x27;expected_records&amp;#x27;]} records, got {validation_results[&amp;#x27;total_records&amp;#x27;]}&amp;quot;\n        assert validation_results[&amp;#x27;emails_unique&amp;#x27;], &amp;quot;Test record emails are not unique&amp;quot;\n        assert validation_results[&amp;#x27;record_ids_unique&amp;#x27;], &amp;quot;Test record IDs are not unique&amp;quot;\n        assert not validation_results[&amp;#x27;validation_errors&amp;#x27;], f&amp;quot;Validation errors: {validation_results[&amp;#x27;validation_errors&amp;#x27;]}&amp;quot;\n    \n        if self.is_dry_run:\n            logger.info(f&amp;quot;DRY RUN: Would send {len(self.test_records)} webhook requests&amp;quot;)\n            logger.info(f&amp;quot;User distribution: {validation_results[&amp;#x27;user_distribution&amp;#x27;]}&amp;quot;)\n            return\n    \n        # Send webhooks\n        logger.info(f&amp;quot;Sending {len(self.test_records)} webhook requests&amp;quot;)\n        self.webhook_responses = self.webhook_validator.send_bulk_webhooks_sync(self.test_records)\n    \n        # Validate delivery results\n        successful_responses = [r for r in self.webhook_responses if 200 &amp;lt;= r.status_code &amp;lt; 300]\n        failed_responses = [r for r in self.webhook_responses if r.status_code &amp;lt; 200 or r.status_code &amp;gt;= 300]\n    \n        success_rate = len(successful_responses) / len(self.webhook_responses) * 100\n        logger.info(f&amp;quot;Webhook delivery: {len(successful_responses)}/{len(self.webhook_responses)} successful ({success_rate:.1f}%)&amp;quot;)\n    \n        # Assert minimum success rate (should be configurable)\n        min_success_rate = 95.0  # 95% minimum success rate\n&amp;gt;       assert success_rate &amp;gt;= min_success_rate, f&amp;quot;Webhook success rate too low: {success_rate:.1f}% (minimum: {min_success_rate}%)&amp;quot;\nE       AssertionError: Webhook success rate too low: 0.0% (minimum: 95.0%)\nE       assert 0.0 &amp;gt;= 95.0\n\ntests/integration_tests/test_monitorbase_integration.py:91: AssertionError\n&#34;}], &#34;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_prospect_creation_validation&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_prospect_creation_validation&#34;, &#34;duration&#34;: &#34;1 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_prospect_creation_validation&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;1 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/home/ianism3/newplay/bonzobuddy/tests/integration_tests/test_monitorbase_integration.py&amp;#x27;, 106, &amp;#x27;Skipped: No test records available (run webhook delivery test first)&amp;#x27;)\n&#34;}], &#34;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_user_assignment_accuracy&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_user_assignment_accuracy&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_user_assignment_accuracy&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/home/ianism3/newplay/bonzobuddy/tests/integration_tests/test_monitorbase_integration.py&amp;#x27;, 175, &amp;#x27;Skipped: No prospect validation results available&amp;#x27;)\n&#34;}], &#34;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_data_mapping_integrity&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_data_mapping_integrity&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_data_mapping_integrity&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/home/ianism3/newplay/bonzobuddy/tests/integration_tests/test_monitorbase_integration.py&amp;#x27;, 234, &amp;#x27;Skipped: No prospect validation results available&amp;#x27;)\n&#34;}], &#34;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_processing_performance&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_processing_performance&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_processing_performance&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/home/ianism3/newplay/bonzobuddy/tests/integration_tests/test_monitorbase_integration.py&amp;#x27;, 313, &amp;#x27;Skipped: No prospect validation results available&amp;#x27;)\n&#34;}], &#34;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_superuser_webhook_with_user_id&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_superuser_webhook_with_user_id&#34;, &#34;duration&#34;: &#34;750 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_superuser_webhook_with_user_id&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;750 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;No log output captured.&#34;}], &#34;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_superuser_prospect_creation_with_user_id&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Failed&#34;, &#34;testId&#34;: &#34;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_superuser_prospect_creation_with_user_id&#34;, &#34;duration&#34;: &#34;00:00:33&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Failed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_superuser_prospect_creation_with_user_id&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:33&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;self = &amp;lt;tests.integration_tests.test_monitorbase_integration.TestMonitorbaseIntegration object at 0x7d20e58a25d0&amp;gt;\ntest_config = TestConfig(test_name=&amp;#x27;Monitorbase Integration Test&amp;#x27;, webhook_url=&amp;#x27;https://app.getbonzo.com/api/webhook/ab87062c614c7b1...hes_lo_email=False), ValidationRule(field=&amp;#x27;business_entity_id&amp;#x27;, expected=&amp;#x27;team_id_from_user&amp;#x27;, matches_lo_email=False)])\nsuperuser_payload_template = {&amp;#x27;email&amp;#x27;: &amp;#x27;{email}&amp;#x27;, &amp;#x27;first_name&amp;#x27;: &amp;#x27;{first_name}&amp;#x27;, &amp;#x27;last_name&amp;#x27;: &amp;#x27;{last_name}&amp;#x27;, &amp;#x27;phone&amp;#x27;: &amp;#x27;{phone}&amp;#x27;, ...}\ntest_data_pattern = &amp;#x27;TestRecord_Monitorbase_20250703_141535&amp;#x27;\n\n    @pytest.mark.superuser\n    def test_superuser_prospect_creation_with_user_id(self, test_config, superuser_payload_template, test_data_pattern):\n        &amp;quot;&amp;quot;&amp;quot;Test that superuser webhooks with user_id create prospects assigned to correct users.&amp;quot;&amp;quot;&amp;quot;\n        if self.is_dry_run:\n            pytest.skip(&amp;quot;Skipping superuser prospect validation in dry run mode&amp;quot;)\n    \n        # Generate and send test records if not already done\n        if not hasattr(self, &amp;#x27;superuser_test_records&amp;#x27;):\n            logger.info(&amp;quot;Generating superuser test records for independent validation&amp;quot;)\n            factory = TestDataFactory(test_config, superuser_payload_template)\n            self.superuser_test_records = factory.generate_test_records(f&amp;quot;{self.test_run_id}_SU_VAL&amp;quot;)\n    \n            # Send webhooks for validation\n            superuser_webhook_validator = WebhookValidator(test_config, webhook_url=test_config.superuser_webhook_url)\n            logger.info(f&amp;quot;Sending {len(self.superuser_test_records)} superuser webhook requests for validation&amp;quot;)\n            self.superuser_webhook_responses = superuser_webhook_validator.send_bulk_webhooks_sync(self.superuser_test_records)\n    \n            # Brief validation of webhook delivery\n            successful_responses = [r for r in self.superuser_webhook_responses if 200 &amp;lt;= r.status_code &amp;lt; 300]\n            success_rate = len(successful_responses) / len(self.superuser_webhook_responses) * 100\n            logger.info(f&amp;quot;Superuser webhook delivery for validation: {len(successful_responses)}/{len(self.superuser_webhook_responses)} successful ({success_rate:.1f}%)&amp;quot;)\n    \n            # Ensure minimum success rate before proceeding\n            assert success_rate &amp;gt;= 90.0, f&amp;quot;Insufficient webhook success rate for validation: {success_rate:.1f}%&amp;quot;\n    \n        # Wait for processing\n        logger.info(f&amp;quot;Waiting {test_config.processing_delay}s for superuser webhook processing&amp;quot;)\n        time.sleep(test_config.processing_delay)\n    \n        # Validate prospects for each user\n        superuser_validation_results = {}\n    \n        for user in test_config.test_users:\n            logger.info(f&amp;quot;Validating superuser prospects for user {user.name} ({user.email})&amp;quot;)\n    \n            # Calculate expected count for this user\n            user_records = [r for r in self.superuser_test_records if r.user_email == user.email]\n            expected_count = len(user_records)\n    \n            if expected_count == 0:\n                continue\n    \n            try:\n                # Find test prospects for this user (created via superuser webhook)\n                # Check both possible naming patterns (from webhook test or independent validation)\n                search_patterns = [\n                    f&amp;quot;TestRecord_{test_config.integration_type.title()}_{self.test_run_id}_SU&amp;quot;,\n                    f&amp;quot;TestRecord_{test_config.integration_type.title()}_{self.test_run_id}_SU_VAL&amp;quot;\n                ]\n    \n                test_prospects = []\n                for pattern in search_patterns:\n                    prospects = self.api_client.find_test_prospects(\n                        user.user_id,\n                        pattern,\n                        created_after=(datetime.now(timezone.utc) - timedelta(hours=1)).isoformat()\n                    )\n                    test_prospects.extend(prospects)\n    \n                superuser_validation_results[user.email] = {\n                    &amp;#x27;expected_count&amp;#x27;: expected_count,\n                    &amp;#x27;found_count&amp;#x27;: len(test_prospects),\n                    &amp;#x27;prospects&amp;#x27;: test_prospects,\n                    &amp;#x27;user_id&amp;#x27;: user.user_id,\n                    &amp;#x27;team_id&amp;#x27;: user.team_id,\n                    &amp;#x27;test_type&amp;#x27;: &amp;#x27;superuser_with_user_id&amp;#x27;\n                }\n    \n                logger.info(f&amp;quot;Found {len(test_prospects)}/{expected_count} superuser test prospects for {user.email}&amp;quot;)\n    \n                # Validate that prospects were assigned based on user_id, not just lo_email\n                for prospect in test_prospects:\n                    if hasattr(prospect, &amp;#x27;assigned_user&amp;#x27;) and prospect.assigned_user:\n                        actual_user_id = prospect.assigned_user.get(&amp;#x27;id&amp;#x27;)\n                        if actual_user_id != user.user_id:\n                            logger.warning(f&amp;quot;Superuser prospect {prospect.id} assigned to user_id {actual_user_id}, expected {user.user_id}&amp;quot;)\n    \n            except Exception as e:\n                logger.error(f&amp;quot;Failed to validate superuser prospects for {user.email}: {e}&amp;quot;)\n                superuser_validation_results[user.email] = {\n                    &amp;#x27;expected_count&amp;#x27;: expected_count,\n                    &amp;#x27;found_count&amp;#x27;: 0,\n                    &amp;#x27;prospects&amp;#x27;: [],\n                    &amp;#x27;error&amp;#x27;: str(e),\n                    &amp;#x27;user_id&amp;#x27;: user.user_id,\n                    &amp;#x27;team_id&amp;#x27;: user.team_id,\n                    &amp;#x27;test_type&amp;#x27;: &amp;#x27;superuser_with_user_id&amp;#x27;\n                }\n    \n        # Assert that prospects were created\n        total_expected = sum(result[&amp;#x27;expected_count&amp;#x27;] for result in superuser_validation_results.values())\n        total_found = sum(result[&amp;#x27;found_count&amp;#x27;] for result in superuser_validation_results.values())\n    \n        creation_rate = (total_found / total_expected * 100) if total_expected &amp;gt; 0 else 0\n        logger.info(f&amp;quot;Superuser prospect creation: {total_found}/{total_expected} prospects found ({creation_rate:.1f}%)&amp;quot;)\n    \n        # Assert minimum creation rate for superuser functionality\n        min_creation_rate = 90.0  # 90% minimum creation rate\n&amp;gt;       assert creation_rate &amp;gt;= min_creation_rate, f&amp;quot;Superuser prospect creation rate too low: {creation_rate:.1f}% (minimum: {min_creation_rate}%)&amp;quot;\nE       AssertionError: Superuser prospect creation rate too low: 0.0% (minimum: 90.0%)\nE       assert 0.0 &amp;gt;= 90.0\n\ntests/integration_tests/test_monitorbase_integration.py:491: AssertionError\n\n------------------------------ Captured log call -------------------------------\nERROR    tests.integration_tests.test_monitorbase_integration:test_monitorbase_integration.py:471 Failed to validate superuser prospects for emorgan@revolutionmortgage.com: &amp;#x27;NoneType&amp;#x27; object has no attribute &amp;#x27;lower&amp;#x27;\nERROR    tests.integration_tests.test_monitorbase_integration:test_monitorbase_integration.py:471 Failed to validate superuser prospects for mrocco@revolutionmortgage.com: &amp;#x27;NoneType&amp;#x27; object has no attribute &amp;#x27;lower&amp;#x27;\n\n&#34;}], &#34;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_generate_integration_report&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_generate_integration_report&#34;, &#34;duration&#34;: &#34;1 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_generate_integration_report&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;1 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;No log output captured.&#34;}]}, &#34;renderCollapsed&#34;: [&#34;passed&#34;], &#34;initialSort&#34;: &#34;result&#34;, &#34;title&#34;: &#34;integration_report.html&#34;}"></div>
+    <script>
+      (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+const { getCollapsedCategory, setCollapsedIds } = require('./storage.js')
+
+class DataManager {
+    setManager(data) {
+        const collapsedCategories = [...getCollapsedCategory(data.renderCollapsed)]
+        const collapsedIds = []
+        const tests = Object.values(data.tests).flat().map((test, index) => {
+            const collapsed = collapsedCategories.includes(test.result.toLowerCase())
+            const id = `test_${index}`
+            if (collapsed) {
+                collapsedIds.push(id)
+            }
+            return {
+                ...test,
+                id,
+                collapsed,
+            }
+        })
+        const dataBlob = { ...data, tests }
+        this.data = { ...dataBlob }
+        this.renderData = { ...dataBlob }
+        setCollapsedIds(collapsedIds)
+    }
+
+    get allData() {
+        return { ...this.data }
+    }
+
+    resetRender() {
+        this.renderData = { ...this.data }
+    }
+
+    setRender(data) {
+        this.renderData.tests = [...data]
+    }
+
+    toggleCollapsedItem(id) {
+        this.renderData.tests = this.renderData.tests.map((test) =>
+            test.id === id ? { ...test, collapsed: !test.collapsed } : test,
+        )
+    }
+
+    set allCollapsed(collapsed) {
+        this.renderData = { ...this.renderData, tests: [...this.renderData.tests.map((test) => (
+            { ...test, collapsed }
+        ))] }
+    }
+
+    get testSubset() {
+        return [...this.renderData.tests]
+    }
+
+    get environment() {
+        return this.renderData.environment
+    }
+
+    get initialSort() {
+        return this.data.initialSort
+    }
+}
+
+module.exports = {
+    manager: new DataManager(),
+}
+
+},{"./storage.js":8}],2:[function(require,module,exports){
+const mediaViewer = require('./mediaviewer.js')
+const templateEnvRow = document.getElementById('template_environment_row')
+const templateResult = document.getElementById('template_results-table__tbody')
+
+function htmlToElements(html) {
+    const temp = document.createElement('template')
+    temp.innerHTML = html
+    return temp.content.childNodes
+}
+
+const find = (selector, elem) => {
+    if (!elem) {
+        elem = document
+    }
+    return elem.querySelector(selector)
+}
+
+const findAll = (selector, elem) => {
+    if (!elem) {
+        elem = document
+    }
+    return [...elem.querySelectorAll(selector)]
+}
+
+const dom = {
+    getStaticRow: (key, value) => {
+        const envRow = templateEnvRow.content.cloneNode(true)
+        const isObj = typeof value === 'object' && value !== null
+        const values = isObj ? Object.keys(value).map((k) => `${k}: ${value[k]}`) : null
+
+        const valuesElement = htmlToElements(
+            values ? `<ul>${values.map((val) => `<li>${val}</li>`).join('')}<ul>` : `<div>${value}</div>`)[0]
+        const td = findAll('td', envRow)
+        td[0].textContent = key
+        td[1].appendChild(valuesElement)
+
+        return envRow
+    },
+    getResultTBody: ({ testId, id, log, extras, resultsTableRow, tableHtml, result, collapsed }) => {
+        const resultBody = templateResult.content.cloneNode(true)
+        resultBody.querySelector('tbody').classList.add(result.toLowerCase())
+        resultBody.querySelector('tbody').id = testId
+        resultBody.querySelector('.collapsible').dataset.id = id
+
+        resultsTableRow.forEach((html) => {
+            const t = document.createElement('template')
+            t.innerHTML = html
+            resultBody.querySelector('.collapsible').appendChild(t.content)
+        })
+
+        if (log) {
+            // Wrap lines starting with "E" with span.error to color those lines red
+            const wrappedLog = log.replace(/^E.*$/gm, (match) => `<span class="error">${match}</span>`)
+            resultBody.querySelector('.log').innerHTML = wrappedLog
+        } else {
+            resultBody.querySelector('.log').remove()
+        }
+
+        if (collapsed) {
+            resultBody.querySelector('.collapsible > td')?.classList.add('collapsed')
+            resultBody.querySelector('.extras-row').classList.add('hidden')
+        } else {
+            resultBody.querySelector('.collapsible > td')?.classList.remove('collapsed')
+        }
+
+        const media = []
+        extras?.forEach(({ name, format_type, content }) => {
+            if (['image', 'video'].includes(format_type)) {
+                media.push({ path: content, name, format_type })
+            }
+
+            if (format_type === 'html') {
+                resultBody.querySelector('.extraHTML').insertAdjacentHTML('beforeend', `<div>${content}</div>`)
+            }
+        })
+        mediaViewer.setup(resultBody, media)
+
+        // Add custom html from the pytest_html_results_table_html hook
+        tableHtml?.forEach((item) => {
+            resultBody.querySelector('td[class="extra"]').insertAdjacentHTML('beforeend', item)
+        })
+
+        return resultBody
+    },
+}
+
+module.exports = {
+    dom,
+    htmlToElements,
+    find,
+    findAll,
+}
+
+},{"./mediaviewer.js":6}],3:[function(require,module,exports){
+const { manager } = require('./datamanager.js')
+const { doSort } = require('./sort.js')
+const storageModule = require('./storage.js')
+
+const getFilteredSubSet = (filter) =>
+    manager.allData.tests.filter(({ result }) => filter.includes(result.toLowerCase()))
+
+const doInitFilter = () => {
+    const currentFilter = storageModule.getVisible()
+    const filteredSubset = getFilteredSubSet(currentFilter)
+    manager.setRender(filteredSubset)
+}
+
+const doFilter = (type, show) => {
+    if (show) {
+        storageModule.showCategory(type)
+    } else {
+        storageModule.hideCategory(type)
+    }
+
+    const currentFilter = storageModule.getVisible()
+    const filteredSubset = getFilteredSubSet(currentFilter)
+    manager.setRender(filteredSubset)
+
+    const sortColumn = storageModule.getSort()
+    doSort(sortColumn, true)
+}
+
+module.exports = {
+    doFilter,
+    doInitFilter,
+}
+
+},{"./datamanager.js":1,"./sort.js":7,"./storage.js":8}],4:[function(require,module,exports){
+const { redraw, bindEvents, renderStatic } = require('./main.js')
+const { doInitFilter } = require('./filter.js')
+const { doInitSort } = require('./sort.js')
+const { manager } = require('./datamanager.js')
+const data = JSON.parse(document.getElementById('data-container').dataset.jsonblob)
+
+function init() {
+    manager.setManager(data)
+    doInitFilter()
+    doInitSort()
+    renderStatic()
+    redraw()
+    bindEvents()
+}
+
+init()
+
+},{"./datamanager.js":1,"./filter.js":3,"./main.js":5,"./sort.js":7}],5:[function(require,module,exports){
+const { dom, find, findAll } = require('./dom.js')
+const { manager } = require('./datamanager.js')
+const { doSort } = require('./sort.js')
+const { doFilter } = require('./filter.js')
+const {
+    getVisible,
+    getCollapsedIds,
+    setCollapsedIds,
+    getSort,
+    getSortDirection,
+    possibleFilters,
+} = require('./storage.js')
+
+const removeChildren = (node) => {
+    while (node.firstChild) {
+        node.removeChild(node.firstChild)
+    }
+}
+
+const renderStatic = () => {
+    const renderEnvironmentTable = () => {
+        const environment = manager.environment
+        const rows = Object.keys(environment).map((key) => dom.getStaticRow(key, environment[key]))
+        const table = document.getElementById('environment')
+        removeChildren(table)
+        rows.forEach((row) => table.appendChild(row))
+    }
+    renderEnvironmentTable()
+}
+
+const addItemToggleListener = (elem) => {
+    elem.addEventListener('click', ({ target }) => {
+        const id = target.parentElement.dataset.id
+        manager.toggleCollapsedItem(id)
+
+        const collapsedIds = getCollapsedIds()
+        if (collapsedIds.includes(id)) {
+            const updated = collapsedIds.filter((item) => item !== id)
+            setCollapsedIds(updated)
+        } else {
+            collapsedIds.push(id)
+            setCollapsedIds(collapsedIds)
+        }
+        redraw()
+    })
+}
+
+const renderContent = (tests) => {
+    const sortAttr = getSort(manager.initialSort)
+    const sortAsc = JSON.parse(getSortDirection())
+    const rows = tests.map(dom.getResultTBody)
+    const table = document.getElementById('results-table')
+    const tableHeader = document.getElementById('results-table-head')
+
+    const newTable = document.createElement('table')
+    newTable.id = 'results-table'
+
+    // remove all sorting classes and set the relevant
+    findAll('.sortable', tableHeader).forEach((elem) => elem.classList.remove('asc', 'desc'))
+    tableHeader.querySelector(`.sortable[data-column-type="${sortAttr}"]`)?.classList.add(sortAsc ? 'desc' : 'asc')
+    newTable.appendChild(tableHeader)
+
+    if (!rows.length) {
+        const emptyTable = document.getElementById('template_results-table__body--empty').content.cloneNode(true)
+        newTable.appendChild(emptyTable)
+    } else {
+        rows.forEach((row) => {
+            if (!!row) {
+                findAll('.collapsible td:not(.col-links', row).forEach(addItemToggleListener)
+                find('.logexpander', row).addEventListener('click',
+                    (evt) => evt.target.parentNode.classList.toggle('expanded'),
+                )
+                newTable.appendChild(row)
+            }
+        })
+    }
+
+    table.replaceWith(newTable)
+}
+
+const renderDerived = () => {
+    const currentFilter = getVisible()
+    possibleFilters.forEach((result) => {
+        const input = document.querySelector(`input[data-test-result="${result}"]`)
+        input.checked = currentFilter.includes(result)
+    })
+}
+
+const bindEvents = () => {
+    const filterColumn = (evt) => {
+        const { target: element } = evt
+        const { testResult } = element.dataset
+
+        doFilter(testResult, element.checked)
+        const collapsedIds = getCollapsedIds()
+        const updated = manager.renderData.tests.map((test) => {
+            return {
+                ...test,
+                collapsed: collapsedIds.includes(test.id),
+            }
+        })
+        manager.setRender(updated)
+        redraw()
+    }
+
+    const header = document.getElementById('environment-header')
+    header.addEventListener('click', () => {
+        const table = document.getElementById('environment')
+        table.classList.toggle('hidden')
+        header.classList.toggle('collapsed')
+    })
+
+    findAll('input[name="filter_checkbox"]').forEach((elem) => {
+        elem.addEventListener('click', filterColumn)
+    })
+
+    findAll('.sortable').forEach((elem) => {
+        elem.addEventListener('click', (evt) => {
+            const { target: element } = evt
+            const { columnType } = element.dataset
+            doSort(columnType)
+            redraw()
+        })
+    })
+
+    document.getElementById('show_all_details').addEventListener('click', () => {
+        manager.allCollapsed = false
+        setCollapsedIds([])
+        redraw()
+    })
+    document.getElementById('hide_all_details').addEventListener('click', () => {
+        manager.allCollapsed = true
+        const allIds = manager.renderData.tests.map((test) => test.id)
+        setCollapsedIds(allIds)
+        redraw()
+    })
+}
+
+const redraw = () => {
+    const { testSubset } = manager
+
+    renderContent(testSubset)
+    renderDerived()
+}
+
+module.exports = {
+    redraw,
+    bindEvents,
+    renderStatic,
+}
+
+},{"./datamanager.js":1,"./dom.js":2,"./filter.js":3,"./sort.js":7,"./storage.js":8}],6:[function(require,module,exports){
+class MediaViewer {
+    constructor(assets) {
+        this.assets = assets
+        this.index = 0
+    }
+
+    nextActive() {
+        this.index = this.index === this.assets.length - 1 ? 0 : this.index + 1
+        return [this.activeFile, this.index]
+    }
+
+    prevActive() {
+        this.index = this.index === 0 ? this.assets.length - 1 : this.index -1
+        return [this.activeFile, this.index]
+    }
+
+    get currentIndex() {
+        return this.index
+    }
+
+    get activeFile() {
+        return this.assets[this.index]
+    }
+}
+
+
+const setup = (resultBody, assets) => {
+    if (!assets.length) {
+        resultBody.querySelector('.media').classList.add('hidden')
+        return
+    }
+
+    const mediaViewer = new MediaViewer(assets)
+    const container = resultBody.querySelector('.media-container')
+    const leftArrow = resultBody.querySelector('.media-container__nav--left')
+    const rightArrow = resultBody.querySelector('.media-container__nav--right')
+    const mediaName = resultBody.querySelector('.media__name')
+    const counter = resultBody.querySelector('.media__counter')
+    const imageEl = resultBody.querySelector('img')
+    const sourceEl = resultBody.querySelector('source')
+    const videoEl = resultBody.querySelector('video')
+
+    const setImg = (media, index) => {
+        if (media?.format_type === 'image') {
+            imageEl.src = media.path
+
+            imageEl.classList.remove('hidden')
+            videoEl.classList.add('hidden')
+        } else if (media?.format_type === 'video') {
+            sourceEl.src = media.path
+
+            videoEl.classList.remove('hidden')
+            imageEl.classList.add('hidden')
+        }
+
+        mediaName.innerText = media?.name
+        counter.innerText = `${index + 1} / ${assets.length}`
+    }
+    setImg(mediaViewer.activeFile, mediaViewer.currentIndex)
+
+    const moveLeft = () => {
+        const [media, index] = mediaViewer.prevActive()
+        setImg(media, index)
+    }
+    const doRight = () => {
+        const [media, index] = mediaViewer.nextActive()
+        setImg(media, index)
+    }
+    const openImg = () => {
+        window.open(mediaViewer.activeFile.path, '_blank')
+    }
+    if (assets.length === 1) {
+        container.classList.add('media-container--fullscreen')
+    } else {
+        leftArrow.addEventListener('click', moveLeft)
+        rightArrow.addEventListener('click', doRight)
+    }
+    imageEl.addEventListener('click', openImg)
+}
+
+module.exports = {
+    setup,
+}
+
+},{}],7:[function(require,module,exports){
+const { manager } = require('./datamanager.js')
+const storageModule = require('./storage.js')
+
+const genericSort = (list, key, ascending, customOrder) => {
+    let sorted
+    if (customOrder) {
+        sorted = list.sort((a, b) => {
+            const aValue = a.result.toLowerCase()
+            const bValue = b.result.toLowerCase()
+
+            const aIndex = customOrder.findIndex((item) => item.toLowerCase() === aValue)
+            const bIndex = customOrder.findIndex((item) => item.toLowerCase() === bValue)
+
+            // Compare the indices to determine the sort order
+            return aIndex - bIndex
+        })
+    } else {
+        sorted = list.sort((a, b) => a[key] === b[key] ? 0 : a[key] > b[key] ? 1 : -1)
+    }
+
+    if (ascending) {
+        sorted.reverse()
+    }
+    return sorted
+}
+
+const durationSort = (list, ascending) => {
+    const parseDuration = (duration) => {
+        if (duration.includes(':')) {
+            // If it's in the format "HH:mm:ss"
+            const [hours, minutes, seconds] = duration.split(':').map(Number)
+            return (hours * 3600 + minutes * 60 + seconds) * 1000
+        } else {
+            // If it's in the format "nnn ms"
+            return parseInt(duration)
+        }
+    }
+    const sorted = list.sort((a, b) => parseDuration(a['duration']) - parseDuration(b['duration']))
+    if (ascending) {
+        sorted.reverse()
+    }
+    return sorted
+}
+
+const doInitSort = () => {
+    const type = storageModule.getSort(manager.initialSort)
+    const ascending = storageModule.getSortDirection()
+    const list = manager.testSubset
+    const initialOrder = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed', 'Skipped', 'Passed']
+
+    storageModule.setSort(type)
+    storageModule.setSortDirection(ascending)
+
+    if (type?.toLowerCase() === 'original') {
+        manager.setRender(list)
+    } else {
+        let sortedList
+        switch (type) {
+        case 'duration':
+            sortedList = durationSort(list, ascending)
+            break
+        case 'result':
+            sortedList = genericSort(list, type, ascending, initialOrder)
+            break
+        default:
+            sortedList = genericSort(list, type, ascending)
+            break
+        }
+        manager.setRender(sortedList)
+    }
+}
+
+const doSort = (type, skipDirection) => {
+    const newSortType = storageModule.getSort(manager.initialSort) !== type
+    const currentAsc = storageModule.getSortDirection()
+    let ascending
+    if (skipDirection) {
+        ascending = currentAsc
+    } else {
+        ascending = newSortType ? false : !currentAsc
+    }
+    storageModule.setSort(type)
+    storageModule.setSortDirection(ascending)
+
+    const list = manager.testSubset
+    const sortedList = type === 'duration' ? durationSort(list, ascending) : genericSort(list, type, ascending)
+    manager.setRender(sortedList)
+}
+
+module.exports = {
+    doInitSort,
+    doSort,
+}
+
+},{"./datamanager.js":1,"./storage.js":8}],8:[function(require,module,exports){
+const possibleFilters = [
+    'passed',
+    'skipped',
+    'failed',
+    'error',
+    'xfailed',
+    'xpassed',
+    'rerun',
+]
+
+const getVisible = () => {
+    const url = new URL(window.location.href)
+    const settings = new URLSearchParams(url.search).get('visible')
+    const lower = (item) => {
+        const lowerItem = item.toLowerCase()
+        if (possibleFilters.includes(lowerItem)) {
+            return lowerItem
+        }
+        return null
+    }
+    return settings === null ?
+        possibleFilters :
+        [...new Set(settings?.split(',').map(lower).filter((item) => item))]
+}
+
+const hideCategory = (categoryToHide) => {
+    const url = new URL(window.location.href)
+    const visibleParams = new URLSearchParams(url.search).get('visible')
+    const currentVisible = visibleParams ? visibleParams.split(',') : [...possibleFilters]
+    const settings = [...new Set(currentVisible)].filter((f) => f !== categoryToHide).join(',')
+
+    url.searchParams.set('visible', settings)
+    window.history.pushState({}, null, unescape(url.href))
+}
+
+const showCategory = (categoryToShow) => {
+    if (typeof window === 'undefined') {
+        return
+    }
+    const url = new URL(window.location.href)
+    const currentVisible = new URLSearchParams(url.search).get('visible')?.split(',').filter(Boolean) ||
+        [...possibleFilters]
+    const settings = [...new Set([categoryToShow, ...currentVisible])]
+    const noFilter = possibleFilters.length === settings.length || !settings.length
+
+    noFilter ? url.searchParams.delete('visible') : url.searchParams.set('visible', settings.join(','))
+    window.history.pushState({}, null, unescape(url.href))
+}
+
+const getSort = (initialSort) => {
+    const url = new URL(window.location.href)
+    let sort = new URLSearchParams(url.search).get('sort')
+    if (!sort) {
+        sort = initialSort || 'result'
+    }
+    return sort
+}
+
+const setSort = (type) => {
+    const url = new URL(window.location.href)
+    url.searchParams.set('sort', type)
+    window.history.pushState({}, null, unescape(url.href))
+}
+
+const getCollapsedCategory = (renderCollapsed) => {
+    let categories
+    if (typeof window !== 'undefined') {
+        const url = new URL(window.location.href)
+        const collapsedItems = new URLSearchParams(url.search).get('collapsed')
+        switch (true) {
+        case !renderCollapsed && collapsedItems === null:
+            categories = ['passed']
+            break
+        case collapsedItems?.length === 0 || /^["']{2}$/.test(collapsedItems):
+            categories = []
+            break
+        case /^all$/.test(collapsedItems) || collapsedItems === null && /^all$/.test(renderCollapsed):
+            categories = [...possibleFilters]
+            break
+        default:
+            categories = collapsedItems?.split(',').map((item) => item.toLowerCase()) || renderCollapsed
+            break
+        }
+    } else {
+        categories = []
+    }
+    return categories
+}
+
+const getSortDirection = () => JSON.parse(sessionStorage.getItem('sortAsc')) || false
+const setSortDirection = (ascending) => sessionStorage.setItem('sortAsc', ascending)
+
+const getCollapsedIds = () => JSON.parse(sessionStorage.getItem('collapsedIds')) || []
+const setCollapsedIds = (list) => sessionStorage.setItem('collapsedIds', JSON.stringify(list))
+
+module.exports = {
+    getVisible,
+    hideCategory,
+    showCategory,
+    getCollapsedIds,
+    setCollapsedIds,
+    getSort,
+    setSort,
+    getSortDirection,
+    setSortDirection,
+    getCollapsedCategory,
+    possibleFilters,
+}
+
+},{}]},{},[4]);
+    </script>
+  </footer>
+</html>

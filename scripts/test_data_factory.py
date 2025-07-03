@@ -55,7 +55,8 @@ class TestDataFactory:
         user_distributions = self._calculate_user_distribution()
         
         record_counter = 1
-        for user, count in user_distributions.items():
+        for user_index, count in user_distributions.items():
+            user = self.config.test_users[user_index]  # Get user by index
             for i in range(count):
                 record_id = f"{test_run_id}_{record_counter:03d}"
                 
@@ -74,7 +75,7 @@ class TestDataFactory:
         logger.info(f"Generated {len(records)} test records for {len(user_distributions)} users")
         return records
     
-    def _calculate_user_distribution(self) -> Dict:
+    def _calculate_user_distribution(self) -> Dict[int, int]:
         """Calculate how many records each user should receive."""
         users = self.config.test_users
         total_records = self.config.test_records
@@ -89,33 +90,34 @@ class TestDataFactory:
             
             for i, user in enumerate(users):
                 count = base_count + (1 if i < remainder else 0)
-                user_distributions[user] = count
+                user_distributions[i] = count  # Use index instead of user object
                 
         elif distribution_method == "weighted":
             # TODO: Implement weighted distribution based on user weights
             # For now, fall back to even distribution
-            return self._calculate_user_distribution_even(users, total_records)
+            return self._calculate_user_distribution_even(total_records)
             
         elif distribution_method == "custom":
             # TODO: Implement custom distribution based on user-specified counts
             # For now, fall back to even distribution
-            return self._calculate_user_distribution_even(users, total_records)
+            return self._calculate_user_distribution_even(total_records)
             
         else:
             raise ValueError(f"Unknown distribution method: {distribution_method}")
         
-        logger.info(f"Distribution: {[(user.name, count) for user, count in user_distributions.items()]}")
+        logger.info(f"Distribution: {[(self.config.test_users[i].name, count) for i, count in user_distributions.items()]}")
         return user_distributions
     
-    def _calculate_user_distribution_even(self, users, total_records):
+    def _calculate_user_distribution_even(self, total_records):
         """Helper method for even distribution."""
+        users = self.config.test_users
         user_distributions = {}
         base_count = total_records // len(users)
         remainder = total_records % len(users)
         
         for i, user in enumerate(users):
             count = base_count + (1 if i < remainder else 0)
-            user_distributions[user] = count
+            user_distributions[i] = count  # Use index instead of user object
             
         return user_distributions
     
@@ -265,8 +267,13 @@ class TestDataFactory:
             if not record.payload.get('first_name'):
                 validation_results['validation_errors'].append(f"Missing first_name in record {record.record_id}")
             
-            if not record.payload.get('lo_email'):
-                validation_results['validation_errors'].append(f"Missing lo_email in record {record.record_id}")
+            # Check for either lo_email (Monitorbase format) or email (standard format)
+            if not record.payload.get('lo_email') and not record.payload.get('email'):
+                validation_results['validation_errors'].append(f"Missing email field in record {record.record_id}")
+            
+            # For superuser payloads, validate user_id is present
+            if 'user_id' in record.payload and not record.payload.get('user_id'):
+                validation_results['validation_errors'].append(f"Missing user_id in record {record.record_id}")
         
         # Check uniqueness
         validation_results['emails_unique'] = len(validation_results['unique_emails']) == len(records)

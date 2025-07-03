@@ -195,6 +195,9 @@ def pytest_configure(config):
     config.addinivalue_line(
         "markers", "superuser: mark test as superuser webhook test"
     )
+    config.addinivalue_line(
+        "markers", "slow: mark test as slow running test"
+    )
 
 
 def pytest_collection_modifyitems(config, items):
@@ -213,3 +216,5 @@ def pytest_collection_modifyitems(config, items):
             item.add_marker(pytest.mark.data_integrity)
         elif "superuser" in item.name:
             item.add_marker(pytest.mark.superuser)
+        elif "slow" in item.name or "performance" in item.name:
+            item.add_marker(pytest.mark.slow)

@@ -1,240 +1,50 @@
-# Monitorbase Integration Testing with Pytest
+# Monitorbase Integration Testing Framework
 
 ## Overview
 
-This pytest framework validates Monitorbase integration health by testing that `lo_email` correctly resolves to `user_id` and prospects are properly assigned to the correct users and teams in Bonzo Buddy.
+This pytest framework validates that your Monitorbase integration correctly resolves `lo_email` to `user_id` and assigns prospects to the right users. It includes both a **real integration test** and a **control test** to ensure your middleware works properly.
 
-## Core Testing Objective
+## The Two Test Types
 
-**Primary Goal**: Validate that when Monitorbase webhooks are sent to our integration endpoint, the `lo_email` field correctly resolves to the appropriate `user_id` and the prospect is assigned to the correct user.
+### 🎯 **Real Integration Test** (Coming Soon)
+Tests your actual Monitorbase integration middleware:
+- **Sends to**: `webhook_url` (your middleware endpoint)
+- **Payload**: Complex Monitorbase-specific format with `lo_email`
+- **Tests**: Does your middleware correctly parse, map, and resolve `lo_email` → `user_id`?
 
-**Control Test**: Send webhooks with explicit `user_id` to verify our superuser middleware works correctly when the field is provided.
+### ✅ **Control Test** (Working Now)
+Validates your superuser webhook works when `user_id` is explicit:
+- **Sends to**: `superuser_webhook_url` (your control endpoint)
+- **Payload**: Simple prospect format with explicit `user_id`
+- **Tests**: Does your superuser middleware correctly assign prospects when `user_id` is provided?
 
-## Test Configuration
+## Quick Setup
 
-### Environment Setup
+### 1. Configure Test Settings
 
-Set these variables in your test configuration:
-
-- `{TEST_HOOK_URL}`: Your main webhook endpoint for Monitorbase integration
-- `{SUPERUSER_API_KEY}`: API key with superuser permissions for validation
-- `superuser_webhook_url`: Control webhook endpoint that accepts `user_id` field
-
-### Test Users
-
-We test with 3 users across different teams:
-
-| Name | Email | User ID | Team ID |
-|------|-------|---------|---------|
-| RevTeamUser1 | escuderi@revolutionmortgage.com | 65013 | 12779 |
-| RevTeamUser2 | emorgan@revolutionmortgage.com | 27227 | 12211 |
-| RevTeamUser3 | mrocco@revolutionmortgage.com | 29194 | 12896 |
-
-## Test Execution
-
-### Basic Integration Test (Primary)
-
-Tests the main Monitorbase integration flow:
-
-```bash
-# Run main integration test - validates lo_email → user_id resolution
-uv run python -m pytest tests/integration_tests/ -m "webhook and not superuser" -v
-
-# Test with 21 records (7 per user)
-uv run python -m pytest tests/integration_tests/ --test-records=21 -v
-```
-
-### Control Test (Superuser Webhook)
-
-Tests that our middleware works when `user_id` is explicitly provided:
-
-```bash
-# Run control test - validates superuser webhook with explicit user_id
-uv run python -m pytest tests/integration_tests/ -m superuser -v
-```
-
-### Complete Test Suite
-
-```bash
-# Run both primary and control tests
-uv run python -m pytest tests/integration_tests/ -v --html=reports/monitorbase_integration_report.html
-```
-
-## Test Flow
-
-### 1. Webhook Delivery (Primary Test)
-
-**Payload Format** (sent to `{TEST_HOOK_URL}`):
-```json
-{
-  "source": "Monitorbase",
-  "lo_email": "escuderi@revolutionmortgage.com",
-  "lo_name": "Loan Officer",
-  "first_name": "TestRecord_MonitorBase_001",
-  "last_name": "Test",
-  "email": "test.monitorbase.001@bonzobuddy.test",
-  "phone": "555-000-0001",
-  // ... other fields
-}
-```
-
-**What it tests**: Does `lo_email` correctly resolve to the right `user_id`?
-
-### 2. Control Test (Superuser Webhook)
-
-**Payload Format** (sent to `superuser_webhook_url`):
-```json
-{
-  "source": "Monitorbase",
-  "user_id": "65013",
-  "lo_email": "escuderi@revolutionmortgage.com",
-  "first_name": "TestRecord_MonitorBase_SU_001",
-  // ... same fields as above
-}
-```
-
-**What it tests**: Does explicit `user_id` correctly assign prospects (validates middleware)?
-
-### 3. Validation via Superuser API
-
-After webhook delivery, the test queries Bonzo using the superuser API:
-
-```python
-# Query prospects for each user using On-Behalf-Of header
-headers = {
-    'On-Behalf-Of': "{user_id}",
-    'Accept': "application/json", 
-    'Authorization': "Bearer {SUPERUSER_API_KEY}"
-}
-
-response = requests.get("https://app.getbonzo.com/api/v3/prospects", headers=headers)
-```
-
-**Validates**:
-- Test record exists in Bonzo
-- `assigned_user.email` matches the `lo_email` from webhook
-- `assigned_user.id` matches expected `user_id`
-- `business_entity_id` matches expected `team_id`
-
-## Key Test Commands
-
-### Dry Run (No Actual Webhooks)
-```bash
-# Test payload generation without sending webhooks
-uv run python -m pytest tests/integration_tests/ --dry-run -v
-```
-
-### Custom Record Count
-```bash
-# Test with different record counts
-uv run python -m pytest tests/integration_tests/ --test-records=15 -v  # 5 per user
-uv run python -m pytest tests/integration_tests/ --test-records=30 -v  # 10 per user
-```
-
-### Specific Test Types
-```bash
-# Run only webhook delivery tests
-uv run python -m pytest tests/integration_tests/ -k "webhook_delivery" -v
-
-# Run only prospect validation tests  
-uv run python -m pytest tests/integration_tests/ -k "prospect_creation" -v
-
-# Run only assignment accuracy tests
-uv run python -m pytest tests/integration_tests/ -k "assignment_accuracy" -v
-```
-
-### Processing Delay Configuration
-```bash
-# Wait longer for webhook processing (default: 30 seconds)
-uv run python -m pytest tests/integration_tests/ --processing-delay=60 -v
-```
-
-## Test Data Pattern
-
-### Identifiable Test Records
-- **Names**: `TestRecord_MonitorBase_001`, `TestRecord_MonitorBase_002`, etc.
-- **Emails**: `test.monitorbase.001@bonzobuddy.test`
-- **Control Test Names**: `TestRecord_MonitorBase_SU_001` (SU = Superuser)
-
-### Distribution
-- 21 total records (default)
-- 7 records per user (even distribution)
-- Each record has different test user's email as `lo_email`
-
-## Expected Results
-
-### Successful Integration
-```json
-{
-  "assigned_user": {
-    "id": 65013,
-    "name": "RevTeamUser1", 
-    "email": "escuderi@revolutionmortgage.com"
-  },
-  "business_entity_id": 12779,
-  "source": "monitorbase"
-}
-```
-
-### Test Validation
-- ✅ `lo_email` from webhook matches `assigned_user.email` in Bonzo
-- ✅ Expected `user_id` matches `assigned_user.id` in Bonzo  
-- ✅ Expected `team_id` matches `business_entity_id` in Bonzo
-- ✅ Test records appear in correct user's prospect list
-
-## Troubleshooting
-
-### Common Issues
-
-**No prospects found**:
-```bash
-# Check webhook endpoint is reachable
-uv run python -m pytest tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_webhook_endpoint_availability -v
-
-# Increase processing delay
-uv run python -m pytest tests/integration_tests/ --processing-delay=60 -v
-```
-
-**Assignment errors**:
-```bash
-# Run control test to verify middleware
-uv run python -m pytest tests/integration_tests/ -m superuser -v
-
-# Check specific user assignment
-uv run python -m pytest tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_user_assignment_accuracy -v
-```
-
-### Debug Mode
-```bash
-# Verbose output with detailed logs
-uv run python -m pytest tests/integration_tests/ -v -s --tb=long
-
-# Debug specific test
-uv run python -m pytest tests/integration_tests/test_monitorbase_integration.py::TestMonitorbaseIntegration::test_bulk_webhook_delivery -v -s
-```
-
-## Configuration File
-
-Update `tests/configs/monitorbase_test_config.yaml`:
+Edit `tests/configs/monitorbase_test_config.yaml`:
 
 ```yaml
-test_name: "Monitorbase Integration Test"
-webhook_url: "{TEST_HOOK_URL}"                    # Main integration endpoint
-superuser_webhook_url: "{SUPERUSER_WEBHOOK_URL}"  # Control test endpoint  
-superuser_api_key: "{SUPERUSER_API_KEY}"
-integration_type: "monitorbase"
-test_records: 21
-distribution: "even"
-processing_delay: 30
+# Webhook endpoints
+webhook_url: "https://your-middleware-endpoint.com/webhook"        # Your integration (coming soon)
+superuser_webhook_url: "https://your-superuser-endpoint.com/webhook"  # Your control endpoint
 
+# API access
+superuser_api_key: "your_superuser_api_key_here"
+
+# Test configuration
+test_records: 21
+processing_delay: 5  # seconds to wait before API validation
+
+# Test users (your actual users)
 test_users:
   - name: "RevTeamUser1"
-    email: "escuderi@revolutionmortgage.com" 
+    email: "escuderi@revolutionmortgage.com"
     user_id: 65013
     team_id: 12779
   - name: "RevTeamUser2"
     email: "emorgan@revolutionmortgage.com"
-    user_id: 27227  
+    user_id: 27227
     team_id: 12211
   - name: "RevTeamUser3"
     email: "mrocco@revolutionmortgage.com"
@@ -242,17 +52,231 @@ test_users:
     team_id: 12896
 ```
 
+### 2. Run the Control Test
+
+```bash
+# Test that your control webhook + API validation works
+uv run python -m pytest tests/integration_tests/ -m superuser -v --processing-delay=5
+```
+
+## How the Control Test Works
+
+### Step 1: Send Simple Prospect Payloads
+
+The control test sends **21 simple prospect payloads** (7 per user) to your `superuser_webhook_url`:
+
+```json
+{
+  "first_name": "TestRecord_001",
+  "last_name": "Test",
+  "phone": "555-520-4161",
+  "email": "test.monitorbase.001@bonzobuddy.test",
+  "user_id": "65013"  ← Explicit user_id provided
+}
+```
+
+**What this tests**: Does your superuser middleware correctly create prospects and assign them when `user_id` is explicitly provided?
+
+### Step 2: Wait for Processing
+
+Waits 5 seconds (configurable) for your webhook to process the prospects.
+
+### Step 3: API Validation
+
+Queries the Bonzo API using your superuser key with `On-Behalf-Of` headers:
+
+```bash
+GET https://app.getbonzo.com/api/v3/prospects
+Headers:
+  Authorization: Bearer {SUPERUSER_API_KEY}
+  On-Behalf-Of: 65013  ← Queries as specific user
+```
+
+**What this validates**:
+- ✅ Prospects were created in Bonzo
+- ✅ Each user has the expected number of prospects (7 each)
+- ✅ Prospects are assigned to the correct user based on `user_id`
+- ✅ Your superuser API integration works
+
+### Expected Control Test Results
+
+```
+✅ Webhook delivery: 21/21 successful (100.0%)
+✅ API queries: Using On-Behalf-Of headers for each user
+✅ Prospect creation: 21/21 prospects found (100.0%)
+✅ Assignment accuracy: 7 prospects per user
+```
+
+## How the Real Integration Test Will Work (Coming Soon)
+
+### Step 1: Send Monitorbase Payloads
+
+Will send **complex Monitorbase payloads** to your `webhook_url`:
+
+```json
+{
+  "source": "Monitorbase",
+  "lo_email": "escuderi@revolutionmortgage.com",  ← No user_id - must be resolved
+  "lo_name": "Loan Officer",
+  "first_name": "TestRecord_MonitorBase_001",
+  "last_name": "Test",
+  "email": "test.monitorbase.001@bonzobuddy.test",
+  "phone": "555-000-0001",
+  "address": "123 Main St",
+  "city": "Anytown",
+  "state": "CA",
+  "zip": "12345",
+  "alert_intel": "Credit Inquiry",
+  "alert_date": "2024-01-01",
+  "tags": ["monitorbase", "inquiry"],
+  // ... many more Monitorbase-specific fields
+}
+```
+
+**What this will test**: Does your middleware correctly:
+1. Parse the complex Monitorbase payload
+2. Extract the `lo_email` field  
+3. Resolve `lo_email` → `user_id` using your business logic
+4. Create prospects assigned to the correct user
+
+### Step 2: Same API Validation
+
+Uses the **exact same API validation** as the control test:
+- Queries with `On-Behalf-Of: {user_id}` headers
+- Searches for prospects with `TestRecord` pattern
+- Validates assignment accuracy
+
+## Key Commands
+
+### Control Test (Works Now)
+```bash
+# Run control test only
+uv run python -m pytest tests/integration_tests/ -m superuser -v
+
+# Control test with custom delay
+uv run python -m pytest tests/integration_tests/ -m superuser --processing-delay=10 -v
+
+# Control test with detailed logging
+uv run python -m pytest tests/integration_tests/ -m superuser -v -s --log-cli-level=INFO
+```
+
+### Real Integration Test (Coming Soon)
+```bash
+# Run main integration test only  
+uv run python -m pytest tests/integration_tests/ -m "webhook and not superuser" -v
+
+# Run both tests
+uv run python -m pytest tests/integration_tests/ -v
+```
+
+### Development Commands
+```bash
+# Dry run (no actual webhooks)
+uv run python -m pytest tests/integration_tests/ --dry-run -v
+
+# Generate HTML report
+uv run python -m pytest tests/integration_tests/ --html=reports/integration_report.html -v
+
+# Custom record count
+uv run python -m pytest tests/integration_tests/ --test-records=15 -v
+```
+
+## Understanding the Test Logs
+
+### Successful Control Test Log
+
+```
+INFO Sending 21 superuser webhook requests with user_id
+INFO Webhook 20250703_142539_SU_VAL_001: 200 in 0.25s
+...
+INFO Superuser webhook delivery: 21/21 successful (100.0%)
+INFO Waiting 5s for superuser webhook processing
+INFO Validating superuser prospects for user RevTeamUser1 (escuderi@revolutionmortgage.com)
+INFO Making GET request to /api/v3/prospects
+INFO Using On-Behalf-Of: 65013
+INFO Response status: 200
+INFO Retrieved 7 prospects for user 65013
+INFO Found 7 test prospects matching 'TestRecord' for user 65013
+INFO Found 7/7 superuser test prospects for escuderi@revolutionmortgage.com
+...
+INFO Superuser prospect creation: 21/21 prospects found (100.0%)
+PASSED
+```
+
+### What Each Step Means
+
+1. **Webhook Delivery**: All 21 payloads accepted by your endpoint (200 responses)
+2. **Processing Wait**: Framework waits for your webhook to process prospects
+3. **API Validation**: Queries Bonzo API using superuser credentials
+4. **On-Behalf-Of**: Each query is made as the specific user to see their prospects
+5. **Pattern Matching**: Searches for prospects with `TestRecord` in the name
+6. **Assignment Validation**: Confirms each user has expected number of prospects
+
+## The Critical Difference
+
+### Control Test Success = Your Infrastructure Works
+- ✅ Superuser webhook processes simple payloads correctly
+- ✅ API validation mechanism works  
+- ✅ `On-Behalf-Of` queries work
+- ✅ Prospect assignment logic works when `user_id` is explicit
+
+### Real Integration Test Success = Your Middleware Works
+- ✅ All of the above PLUS:
+- ✅ Complex Monitorbase payload parsing
+- ✅ `lo_email` → `user_id` resolution logic
+- ✅ Field mapping and transformation
+- ✅ End-to-end integration health
+
+## Troubleshooting
+
+### Control Test Failures
+
+**No prospects found**:
+```bash
+# Increase processing delay
+uv run python -m pytest tests/integration_tests/ -m superuser --processing-delay=15 -v
+
+# Check if webhooks are reaching your endpoint
+# Look for 200 responses in logs
+```
+
+**API errors**:
+```bash
+# Verify superuser API key has correct permissions
+# Check that On-Behalf-Of headers work for your users
+```
+
+**Assignment errors**:
+```bash
+# Verify user_id values in test config match actual Bonzo user IDs
+# Check that superuser can query prospects for these users
+```
+
+### Real Integration Test Failures (When Available)
+
+Will likely fail initially because:
+- Middleware endpoint not ready
+- `lo_email` → `user_id` mapping not implemented  
+- Monitorbase payload parsing not complete
+
 ## Success Criteria
 
-### Primary Integration Test
+### Control Test (Must Pass First)
 - 95%+ webhook delivery success rate
-- 90%+ prospect creation rate  
-- 95%+ user assignment accuracy
-- `lo_email` correctly resolves to `user_id` in all test cases
+- 90%+ prospect creation rate via API validation
+- 100% assignment accuracy (prospects assigned to correct users)
+- API validation working with `On-Behalf-Of` headers
 
-### Control Test  
-- Explicit `user_id` results in correct prospect assignment
-- Validates that superuser middleware works when field is provided
-- Confirms integration logic is functioning properly
+### Real Integration Test (When Ready)
+- Same success criteria as control test
+- PLUS: Correct `lo_email` → `user_id` resolution
+- PLUS: Proper Monitorbase payload handling
 
-The framework provides comprehensive validation that Monitorbase integration correctly handles `lo_email` → `user_id` resolution and prospect assignment across different teams.
+## Next Steps
+
+1. **✅ Verify control test passes** - This validates your infrastructure
+2. **🔄 Implement your Monitorbase middleware** - The real integration endpoint
+3. **🎯 Run real integration test** - This will validate your `lo_email` logic
+4. **🚀 Deploy with confidence** - Both tests passing = integration is solid
+
+The control test proves your foundation works. The real integration test will prove your `lo_email` → `user_id` logic works. Together, they give you complete confidence in your Monitorbase integration.

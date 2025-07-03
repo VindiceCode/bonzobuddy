@@ -67,6 +67,12 @@ def pytest_addoption(parser):
         default=False,
         help="Perform dry run without making actual API calls"
     )
+    parser.addoption(
+        "--inthelp",
+        action="store_true",
+        default=False,
+        help="Show common integration test patterns and commands"
+    )
 
 
 @pytest.fixture(scope="session")
@@ -178,8 +184,112 @@ def test_environment_check():
             raise EnvironmentError(f"Required directory missing: {dir_path}")
 
 
+def show_integration_help():
+    """Display common integration test patterns and commands."""
+    help_text = """
+🧪 MONITORBASE INTEGRATION TEST PATTERNS
+
+═══════════════════════════════════════════════════════════════════════
+
+📋 CONTROL TESTS (Validate Infrastructure)
+    Test your superuser webhook with explicit user_id field
+
+    # Run control test only
+    uv run python -m pytest tests/integration_tests/ -m superuser -v
+
+    # Control test with custom delay
+    uv run python -m pytest tests/integration_tests/ -m superuser --processing-delay=10 -v
+
+    # Control test with detailed logging
+    uv run python -m pytest tests/integration_tests/ -m superuser -v -s --log-cli-level=INFO
+
+═══════════════════════════════════════════════════════════════════════
+
+🎯 REAL INTEGRATION TESTS (Test lo_email → user_id Resolution)
+    Test your Monitorbase middleware with lo_email field
+
+    # Run main integration test
+    uv run python -m pytest tests/integration_tests/ -m "webhook and not superuser" -v
+
+    # Test with detailed logging and API calls
+    uv run python -m pytest tests/integration_tests/ -m "webhook and not superuser" -v -s --log-cli-level=INFO
+
+    # Test with fewer records for faster feedback
+    uv run python -m pytest tests/integration_tests/ -m "webhook and not superuser" --test-records=9 -v
+
+    # Test with longer processing delay
+    uv run python -m pytest tests/integration_tests/ -m "webhook and not superuser" --processing-delay=15 -v
+
+═══════════════════════════════════════════════════════════════════════
+
+📊 REPORTS & ANALYSIS
+
+    # Generate HTML report
+    uv run python -m pytest tests/integration_tests/ --html=reports/test_report.html -v
+
+    # Self-contained HTML report (no external assets)
+    uv run python -m pytest tests/integration_tests/ --html=reports/test_report.html --self-contained-html -v
+
+    # Run both control and real tests with report
+    uv run python -m pytest tests/integration_tests/ -v --html=reports/full_integration_report.html
+
+═══════════════════════════════════════════════════════════════════════
+
+🔧 DEVELOPMENT & DEBUGGING
+
+    # Dry run (no actual webhooks sent)
+    uv run python -m pytest tests/integration_tests/ --dry-run -v
+
+    # Test specific functions
+    uv run python -m pytest tests/integration_tests/ -k "webhook_delivery" -v
+    uv run python -m pytest tests/integration_tests/ -k "prospect_creation" -v
+    uv run python -m pytest tests/integration_tests/ -k "assignment_accuracy" -v
+
+    # Custom record counts
+    uv run python -m pytest tests/integration_tests/ --test-records=3 -v   # Quick test
+    uv run python -m pytest tests/integration_tests/ --test-records=30 -v  # Stress test
+
+═══════════════════════════════════════════════════════════════════════
+
+⚡ QUICK PATTERNS
+
+    Control Test Only:       uv run python -m pytest tests/integration_tests/ -m superuser -v
+    Real Integration Only:   uv run python -m pytest tests/integration_tests/ -m "webhook and not superuser" -v
+    Everything:              uv run python -m pytest tests/integration_tests/ -v
+    With HTML Report:        uv run python -m pytest tests/integration_tests/ -v --html=reports/test.html
+    Fast Feedback:           uv run python -m pytest tests/integration_tests/ -m superuser --test-records=3 -v
+    Detailed Logging:        uv run python -m pytest tests/integration_tests/ -m superuser -v -s --log-cli-level=INFO
+
+═══════════════════════════════════════════════════════════════════════
+
+📍 KEY MARKERS
+
+    -m superuser             Control tests (explicit user_id)
+    -m "webhook and not superuser"  Real integration tests (lo_email → user_id)
+    -m webhook               All webhook delivery tests
+    -m api                   All API validation tests
+    -m data_integrity        Data mapping validation tests
+    -m slow                  Performance/timing tests
+
+═══════════════════════════════════════════════════════════════════════
+
+🎯 SUCCESS CRITERIA
+
+    Control Test Success:    95%+ webhook delivery, 90%+ prospect creation, 100% assignment accuracy
+    Real Integration Success: Same as control + correct lo_email → user_id resolution
+
+═══════════════════════════════════════════════════════════════════════
+"""
+    print(help_text)
+
+
 def pytest_configure(config):
     """Configure pytest markers."""
+    # Show help and exit if --inthelp is used
+    if config.getoption("--inthelp"):
+        show_integration_help()
+        pytest.exit("Integration test help displayed", returncode=0)
+    
     config.addinivalue_line(
         "markers", "integration: mark test as integration test"
     )

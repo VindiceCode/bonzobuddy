@@ -650,25 +650,28 @@ class BonzoBuddyApp(ctk.CTk):
         payload_text = self.payload_viewer.get("1.0", "end-1c")
         
         try:
-            # Parse JSON to validate
-            payload_dict = json.loads(payload_text)
+            # Send raw text as JSON body (no validation)
+            response = requests.post(
+                webhook.url, 
+                data=payload_text,
+                headers={'Content-Type': 'application/json'},
+                timeout=30
+            )
             
-            # Send request
-            response = requests.post(webhook.url, json=payload_dict, timeout=30)
-            
-            # Show response
+            # Show response (all status codes)
             status_color = "green" if response.status_code == 200 else "red"
-            result_text = f"Status: {response.status_code}\nURL: {webhook.url}\nResponse: {response.text[:500]}"
+            result_text = f"Status: {response.status_code}\nURL: {webhook.url}\nResponse: {response.text[:1000]}"
             
-            messagebox.showinfo("Send Result", result_text)
+            # Show response in appropriate dialog based on status
+            if response.status_code == 200:
+                messagebox.showinfo("Send Result", result_text)
+                # If successful and we have a pending prospect, save it
+                if self.state_manager.state.pending_prospect:
+                    self.state_manager.save_prospect_after_successful_send()
+                    messagebox.showinfo("Success", "Prospect saved successfully!")
+            else:
+                messagebox.showwarning("Webhook Response", result_text)
             
-            # If successful and we have a pending prospect, save it
-            if response.status_code == 200 and self.state_manager.state.pending_prospect:
-                self.state_manager.save_prospect_after_successful_send()
-                messagebox.showinfo("Success", "Prospect saved successfully!")
-            
-        except json.JSONDecodeError:
-            messagebox.showerror("Error", "Invalid JSON in payload")
         except requests.RequestException as e:
             messagebox.showerror("Error", f"Request failed: {e}")
     

@@ -1,0 +1,58 @@
+# Monitorbase Integration Test Configuration
+test_name: "Monitorbase Integration Test"
+webhook_url: "https://app.getbonzo.com/api/webhook/ab87062c614c7b103e3439a8f96c8f68"  # Replace with actual TEST_HOOK_URL
+superuser_webhook_url: "https://app.getbonzo.com/api/webhook/2c35166f9f8746e104c05e09c4f57bd3"  # Replace with superuser webhook URL
+superuser_api_key: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI4IiwianRpIjoiOTdlMzc1NGI1OWQ0N2MyNmVjOWU5YTAyZWUyZWQ5MjIwMWM2ZWIwN2JhMjJjNzA3MWMxODljNTNlYjBkYTEyYmM3ZDVhNjVmNmIwMWViYTQiLCJpYXQiOjE3NTE1Njg1NTAuNTMwMTc4LCJuYmYiOjE3NTE1Njg1NTAuNTMwMTgxLCJleHAiOjE3ODMxMDQ1NTAuNTE2ODY0LCJzdWIiOiI4NjQwIiwic2NvcGVzIjpbImFjY2Vzcy1wdWJsaWMiLCJhY2Nlc3MtYXV0aGVudGljYXRlZCIsInByb3NwZWN0cyIsInBpcGVsaW5lcyIsImNhbXBhaWducyIsIm1lc3NhZ2luZyIsImNvbnZlcnNhdGlvbnMiXX0.n41UH46lpErskQbtafuIy90Jg-UuvZQPahn8KKdn1xfOfncuby37jpALBASz8yJ8A6zWoYbFR-l6U9XknN1ipp8jPyu_jgQxzYphC89fshJeFUE8KYbh4-OOtt92xoi9G6H-oo3Rts4T58j4SLcOLLk2QSJHLYFrYFP4hlWuvTYWEbdMXx1bEQP5TR2yMuFK5zkkTbhp5LrH72XIu4ZUegLiADZ1frLa0rKRpoS8VxDFiYHi2EuwCz6XkRM8NwARXFbTXptfuWn58teya4Tx4SRMNqAsUSiOTeBgegLWAPM8xVU-1W1jvATRIKEXcm9m3OMKiq81QhZGE_Qq_4Lv_FuIt2KHlP8bSuT2ZUIU38C7D1e0yG7IhdIkoOCRwfmO8FVrumc8XgcN2sc28DPGFxyHVkuvVvtNITge37gscCSSQMJhbPBzXEyAcfqxMR6x5mm1AU4Lijh-DbTYaZim65UNFSdvWoFtnE8TwMpJbQeOBcC3h3RxyGRjZ8XqGpg-pmaCcMxwjhvh0OyUzSQMHFyNS8WJntuQaz4HFIJuWaEMn-cDs_xJCIE1K-St4JlGXOi2uWQtApPb_EWQCSfgKIJpLHefzaYP_EUlx1Y3a6A3rcslbyNhvgaNjXadRvpKnR9azCLZsed9IEPSfBPib1gPP6v-sXerOaQcvF_x8rU"  # Replace with actual SUPERUSER_API_KEY
+integration_type: "monitorbase"
+test_records: 21
+distribution: "even"  # Split evenly among test users
+processing_delay: 5  # seconds to wait before validation
+
+test_users:
+  - name: "RevTeamUser1"
+    email: "escuderi@revolutionmortgage.com"
+    user_id: 65013
+    team_id: 12779
+  - name: "RevTeamUser2"
+    email: "emorgan@revolutionmortgage.com"
+    user_id: 27227
+    team_id: 12211
+  - name: "RevTeamUser3"
+    email: "mrocco@revolutionmortgage.com"
+    user_id: 29194
+    team_id: 12896
+
+validation_rules:
+  - field: "source"
+    expected: "monitorbase"
+  - field: "assigned_user.email"
+    matches_lo_email: true
+  - field: "assigned_user.id"
+    expected: "user_id_from_lo_email"
+  - field: "business_entity_id"
+    expected: "team_id_from_user"
+
+# Test data generation settings
+test_data_settings:
+  first_name_pattern: "TestRecord"
+  last_name_pattern: "MonitorBase"
+  email_domain: "bonzobuddy.test"
+  phone_area_code: "555"
+  address_pattern: "123 Test St"
+  city: "TestCity"
+  state: "CA"
+  zip: "12345"
+
+# Webhook delivery settings
+webhook_settings:
+  timeout: 30
+  retry_attempts: 3
+  retry_delay: 5
+  concurrent_requests: 5
+
+# API validation settings
+api_settings:
+  base_url: "https://app.getbonzo.com"
+  timeout: 30
+  retry_attempts: 3
+  max_prospects_per_request: 100

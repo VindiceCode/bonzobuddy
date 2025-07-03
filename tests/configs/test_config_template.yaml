@@ -1,0 +1,56 @@
+# Integration Test Configuration Template
+# Copy this file and customize for your specific integration
+
+test_name: "Your Integration Test"
+webhook_url: "https://your-webhook-endpoint.com/webhook"
+superuser_api_key: "your_superuser_api_key_here"
+integration_type: "your_integration_name"  # e.g., "monitorbase", "lendingqb", etc.
+test_records: 21
+distribution: "even"  # "even", "weighted", or "custom"
+processing_delay: 30  # seconds to wait before validation
+
+test_users:
+  - name: "TestUser1"
+    email: "testuser1@example.com"
+    user_id: 12345
+    team_id: 67890
+  - name: "TestUser2"
+    email: "testuser2@example.com"
+    user_id: 12346
+    team_id: 67891
+  # Add more users as needed
+
+validation_rules:
+  - field: "source"
+    expected: "your_integration_name"
+  - field: "assigned_user.email"
+    matches_lo_email: true
+  # Add more validation rules as needed
+
+# Test data generation settings
+test_data_settings:
+  first_name_pattern: "TestRecord"
+  last_name_pattern: "YourIntegration"
+  email_domain: "bonzobuddy.test"
+  phone_area_code: "555"
+  address_pattern: "123 Test St"
+  city: "TestCity"
+  state: "CA"
+  zip: "12345"
+
+# Webhook delivery settings
+webhook_settings:
+  timeout: 30
+  retry_attempts: 3
+  retry_delay: 5
+  concurrent_requests: 5
+
+# API validation settings
+api_settings:
+  base_url: "https://app.getbonzo.com"
+  timeout: 30
+  retry_attempts: 3
+  max_prospects_per_request: 100
+
+# Custom settings for your integration
+# Add any integration-specific configuration here

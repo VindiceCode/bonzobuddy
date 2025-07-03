@@ -13,6 +13,8 @@
 -   **De-duplication Testing:** Easily resend previously generated (and successfully saved) prospects to test your system's contact merging and de-duplication logic.
 -   **Centralized Management:** Manage all your test organizations and their associated webhook endpoints from within the app's clear, three-panel layout.
 -   **Extensible by Design:** Easily add new integrations by creating a new directory and a `_schema.json` file. The application will automatically detect and include it.
+-   **Advanced Debugging Capabilities:** Send any text (including malformed JSON) to webhooks and see the exact response from Bonzo for debugging purposes.
+-   **Comprehensive Error Handling:** View detailed error messages and responses from failed webhook calls to troubleshoot integration issues.
 
 ## Setup and Installation
 
@@ -66,6 +68,20 @@ The application is designed to guide you through a simple, three-step process:
     *   With a webhook selected, the "Action" panel becomes active.
     *   Click **"Generate New Prospect"** to create a payload with a brand new, unique contact. The contact is held in a "pending" state.
     *   Alternatively, select a prospect from the "Existing Prospects" list and click **"Use Selected Prospect"** to test de-duplication.
-    *   Review the generated payload in the viewer, then click **"Send Payload"**.
-    *   The response from your endpoint will be printed in the console. If the send was for a *new* prospect and the status code was `200`, the prospect will now be saved to the "Existing Prospects" list.
+    *   Review and edit the generated payload in the viewer. You can modify the JSON or even input malformed JSON for testing purposes.
+    *   Click **"Send Payload"** to send the payload to your webhook endpoint.
+    *   The response from your endpoint will be displayed in a popup dialog. If the send was for a *new* prospect and the status code was `200`, the prospect will now be saved to the "Existing Prospects" list.
+
+## Debugging and Error Handling
+
+Bonzo Buddy is designed to help you debug webhook integrations by providing comprehensive error information:
+
+-   **Send Any Text:** The application will send any text you enter in the payload viewer to your webhook, including malformed JSON.
+-   **View All Responses:** See the exact response from Bonzo, including error messages, status codes, and response bodies.
+-   **Error Message Display:** When a webhook call fails (non-200 status code), the error response is displayed in a warning dialog for easy debugging.
+-   **Webhook Log Integration:** Failed webhook calls help you identify issues in your Bonzo webhook logs for troubleshooting.
+
+![Error Message Example](assets/errormessage.png)
+
+*Example of an error response showing detailed debugging information when a webhook call fails due to missing required fields.*
 

@@ -14,7 +14,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
 from scripts.bonzo_api_client import BonzoAPIClient, ProspectData
 from scripts.webhook_validator import WebhookValidator
-from scripts.test_data_factory import TestDataFactory, TestRecord
+from scripts.test_data_factory import DataFactory, Record
 
 logger = logging.getLogger(__name__)
 
@@ -34,7 +34,7 @@ class TestMonitorbaseIntegration:
         self.webhook_validator = WebhookValidator(test_config)
         
         # Test data will be generated in individual tests
-        self.test_records: List[TestRecord] = []
+        self.test_records: List[Record] = []
         self.webhook_responses = []
         
     def test_webhook_endpoint_availability(self):
@@ -60,7 +60,7 @@ class TestMonitorbaseIntegration:
     def test_bulk_webhook_delivery(self, test_config, payload_template, test_data_pattern):
         """Test bulk webhook delivery with proper distribution among users."""
         # Generate test data
-        factory = TestDataFactory(test_config, payload_template)
+        factory = DataFactory(test_config, payload_template)
         self.test_records = factory.generate_test_records(self.test_run_id)
         
         # Validate test data generation
@@ -126,7 +126,7 @@ class TestMonitorbaseIntegration:
                 # Find test prospects for this user
                 test_prospects = self.api_client.find_test_prospects(
                     user.user_id,
-                    f"TestRecord_{test_config.integration_type.title()}_{self.test_run_id}",
+                    f"Record_{test_config.integration_type.title()}_{self.test_run_id}",
                     created_after=(datetime.now(timezone.utc) - timedelta(hours=1)).isoformat()
                 )
                 
@@ -341,7 +341,7 @@ class TestMonitorbaseIntegration:
     def test_superuser_webhook_with_user_id(self, test_config, superuser_payload_template, test_data_pattern):
         """Test superuser webhook delivery with user_id field for cross-team processing."""
         # Generate test data using superuser payload template
-        factory = TestDataFactory(test_config, superuser_payload_template)
+        factory = DataFactory(test_config, superuser_payload_template)
         superuser_test_records = factory.generate_test_records(f"{self.test_run_id}_SU")
         
         # Validate test data generation
@@ -399,7 +399,7 @@ class TestMonitorbaseIntegration:
         # Generate and send test records if not already done
         if not hasattr(self, 'superuser_test_records'):
             logger.info("Generating superuser test records for independent validation")
-            factory = TestDataFactory(test_config, superuser_payload_template)
+            factory = DataFactory(test_config, superuser_payload_template)
             self.superuser_test_records = factory.generate_test_records(f"{self.test_run_id}_SU_VAL")
             
             # Send webhooks for validation
@@ -434,10 +434,10 @@ class TestMonitorbaseIntegration:
             
             try:
                 # Find test prospects for this user (created via superuser webhook)
-                # Search for simple "TestRecord" pattern since that's what we actually send
+                # Search for simple "Record" pattern since that's what we actually send
                 test_prospects = self.api_client.find_test_prospects(
                     user.user_id,
-                    "TestRecord",  # Simple pattern that matches first_name: "TestRecord_001"
+                    "Record",  # Simple pattern that matches first_name: "Record_001"
                     created_after=(datetime.now(timezone.utc) - timedelta(minutes=30)).isoformat()
                 )
                 

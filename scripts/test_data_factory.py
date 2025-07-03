@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 
 @dataclass
-class TestRecord:
+class Record:
     """Individual test record data."""
     record_id: str
     user_email: str
@@ -24,7 +24,7 @@ class TestRecord:
     sequence_number: int
 
 
-class TestDataFactory:
+class DataFactory:
     """Factory for generating bulk test data records."""
     
     def __init__(self, config, payload_template: Dict[str, Any]):
@@ -39,7 +39,7 @@ class TestDataFactory:
         self.payload_template = payload_template
         self.test_data_settings = getattr(config, 'test_data_settings', {})
         
-    def generate_test_records(self, test_run_id: str) -> List[TestRecord]:
+    def generate_test_records(self, test_run_id: str) -> List[Record]:
         """
         Generate bulk test records according to configuration.
         
@@ -47,7 +47,7 @@ class TestDataFactory:
             test_run_id: Unique identifier for this test run
             
         Returns:
-            List of TestRecord objects
+            List of Record objects
         """
         records = []
         
@@ -60,7 +60,7 @@ class TestDataFactory:
             for i in range(count):
                 record_id = f"{test_run_id}_{record_counter:03d}"
                 
-                test_record = TestRecord(
+                test_record = Record(
                     record_id=record_id,
                     user_email=user.email,
                     user_id=user.user_id,
@@ -152,7 +152,7 @@ class TestDataFactory:
         unique_suffix = f"{sequence_number:03d}"
         
         # Generate names
-        first_name_pattern = settings.get('first_name_pattern', 'TestRecord')
+        first_name_pattern = settings.get('first_name_pattern', 'Record')
         last_name_pattern = settings.get('last_name_pattern', 'Test')
         
         first_name = f"{first_name_pattern}_{unique_suffix}"
@@ -233,12 +233,12 @@ class TestDataFactory:
         # Convert back to dictionary
         return json.loads(payload_str)
     
-    def validate_test_records(self, records: List[TestRecord]) -> Dict[str, Any]:
+    def validate_test_records(self, records: List[Record]) -> Dict[str, Any]:
         """
         Validate generated test records.
         
         Args:
-            records: List of TestRecord objects
+            records: List of Record objects
             
         Returns:
             Validation results dictionary
@@ -286,12 +286,12 @@ class TestDataFactory:
         logger.info(f"Validation results: {len(validation_results['validation_errors'])} errors found")
         return validation_results
     
-    def export_test_records(self, records: List[TestRecord], output_file: str) -> None:
+    def export_test_records(self, records: List[Record], output_file: str) -> None:
         """
         Export test records to JSON file.
         
         Args:
-            records: List of TestRecord objects
+            records: List of Record objects
             output_file: Output file path
         """
         export_data = {
@@ -329,15 +329,15 @@ class TestDataFactory:
         logger.info(f"Exported {len(records)} test records to {output_file}")
 
 
-def create_test_data_factory(config, payload_template: Dict[str, Any]) -> TestDataFactory:
+def create_test_data_factory(config, payload_template: Dict[str, Any]) -> DataFactory:
     """
-    Factory function to create TestDataFactory instance.
+    Factory function to create DataFactory instance.
     
     Args:
         config: Test configuration object
         payload_template: JSON payload template
         
     Returns:
-        TestDataFactory instance
+        DataFactory instance
     """
-    return TestDataFactory(config, payload_template)
+    return DataFactory(config, payload_template)
